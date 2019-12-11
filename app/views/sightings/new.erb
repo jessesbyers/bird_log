@@ -1,0 +1,21 @@
+<h1>sightings new.erb</h1>
+<p>build out form to create a new sighting</p>
+
+
+<!-- # <% if Helpers.logged_in?(session) %> -->
+<form action='/sightings' method="post">
+  <label for="audubon_url">Audubon URL: </label>
+    <p><input type="string" name="audubon_url" required></p>
+  <label for="date">Date: </label>
+    <p><input type="date" name="date" required></p>
+  <label for="location">Location: </label>
+    <p><input type="string" name="location" required></p>
+  <label for="notes">Notes</label>
+    <p><input type="text" name="notes" required></p>
+  <input type="submit" name="submit" value="Create New Sighting">
+</form>
+
+<!-- <% else %>
+    <h1> You Must Be Logged in to Make Tweets </h1>
+    <a href="/login">Click here to log in</a>
+<% end %> -->
