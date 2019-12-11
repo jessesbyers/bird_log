@@ -18,9 +18,21 @@ class SightingsController < ApplicationController
   end
 
   post '/sightings' do
-    if params[:content] != ""
-      @sighting = Sighting.create(:audubon_url => params[:audubon_url], :date => params[:date], :location => params[:location], :notes => params[:notes],     :user_id => Helpers.current_user(session).id)
-      # need to figure out if bird_id needs to be set here or elsewhere
+    if params[:audubon_url] != ""
+      @sighting = Sighting.create(:audubon_url => params[:audubon_url], :date => params[:date], :location => params[:location], :notes => params[:notes], :user_id => Helpers.current_user(session).id)
+
+# need to fix conditional -
+# currently saving birds more than once in the database
+      bird = Bird.new(Bird.scrape_attributes(@sighting.audubon_url))
+      if Bird.all.include?(bird.common_name)
+        old_bird = Bird.find_by(name: bird.common_name)
+        @sighting.bird_id = old_bird
+      else
+        bird.save
+        @sighting.bird_id = bird.id
+      end
+      # need to fix above
+      
       redirect to "/sightings/#{@sighting.id}"
     else
       redirect to "/sightings/new"

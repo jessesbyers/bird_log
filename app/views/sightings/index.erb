@@ -6,7 +6,6 @@
 <%@users.each do |user|%>
 <h3><%=user.username.capitalize%>'s Sightings</h3>
   <%user.sightings.each do |sighting|%>
-    <p>Number: <%=sighting.id%></p>
     <p>Audubon URL: <%=sighting.audubon_url%></p>
     <p>Date: <%=sighting.date%></p>
     <p>Location: <%=sighting.location%></p>

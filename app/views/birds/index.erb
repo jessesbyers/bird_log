@@ -1,0 +1,28 @@
+<h1>birds index.erb</h1>
+<p>build out to show index of all of the birds from all sightings</p>
+
+<% if Helpers.logged_in?(session) %>
+
+<%@birds.each do |bird|%>
+  <h2>Common Name: <%=bird.common_name%></h2>
+  <p>Scientific Name: <%=bird.scientific_name%></p>
+  <p>Family: <%=bird.family%></p>
+  <p>Description: <%=bird.description%></p>
+  <p>Conservation Status: <%=bird.conservation_status%></p>
+  <p>Habitat: <%=bird.habitat%></p>
+  <p>Feeding Behavior: <%=bird.feeding_behavior%></p>
+  <p>Eggs: <%=bird.eggs%></p>
+  <p>Young: <%=bird.young%></p>
+  <p>Diet: <%=bird.diet%></p>
+  <p>Image: <a target="blank" href="<%=bird.image%>">Click here to view bird</a></p>
+
+
+
+<%end%>
+
+    <a href="/logout">Log Out</a>
+
+    <% else %>
+        <h1> You Must Be Logged in to View Tweets </h1>
+        <a href="/login">Click here to log in</a>
+    <% end %>
