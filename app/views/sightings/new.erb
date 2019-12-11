@@ -1,8 +1,14 @@
 <h1>sightings new.erb</h1>
 <p>build out form to create a new sighting</p>
 
+<form action="https://www.audubon.org/bird-guide" target="_blank" >
+   <button type="submit">Click to Identify bird in Audubon Bird Guide</button>
+</form>
 
-<!-- # <% if Helpers.logged_in?(session) %> -->
+<p>After Identifying your bird in the bird guide, copy the URL and paste it in the form below.</p>
+
+
+# <% if Helpers.logged_in?(session) %>
 <form action='/sightings' method="post">
   <label for="audubon_url">Audubon URL: </label>
     <p><input type="string" name="audubon_url" required></p>
@@ -15,7 +21,7 @@
   <input type="submit" name="submit" value="Create New Sighting">
 </form>
 
-<!-- <% else %>
+<% else %>
     <h1> You Must Be Logged in to Make Tweets </h1>
     <a href="/login">Click here to log in</a>
-<% end %> -->
+<% end %>
