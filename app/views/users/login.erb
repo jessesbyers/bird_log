@@ -1,2 +1,12 @@
 <h1>login.erb</h1>
 <p>build out to include login form</p>
+
+<h3>Already have an account? Log In Please</h3>
+
+  <form action="/login" method="POST">
+      <label for="username">Username: </label>
+        <p><input type="text" id="username" name="username"></p>
+      <label for="password">Password: </label>
+        <p><input type="text" id="password" name="password"></p>
+      <input id="submit" type="submit" value="Log In">
+  </form>

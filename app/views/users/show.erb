@@ -1,2 +1,10 @@
 <h1>show.erb</h1>
 <p>build out to show profile of a single user using slug name</p>
+
+<h1>Your Tweets</h1>
+
+<%@user.sightings.each do |sighting|%>
+<p><%=sighting.audubon_url%><p>
+  <p><%=finish adding other attributes%><p>
+
+<%end%>

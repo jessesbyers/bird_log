@@ -1,6 +1,7 @@
 require './config/environment'
 
 use Rack::MethodOverride
-use TweetsController
+use BirdsController
+use SightingsController
 use UsersController
 run ApplicationController
