@@ -1,31 +1,16 @@
-<h1>birds index.erb</h1>
-<p>build out to show index of all of the birds from all sightings</p>
-
-<% if Helpers.logged_in?(session) %>
+<!-- # <% if Helpers.logged_in?(session) %> -->
 
 <%@birds.each do |bird|%>
-  <h2>Common Name: <%=bird.common_name%></h2>
+  <h2><%=bird.common_name%></h2>
+  <p><em><%=bird.scientific_name%></em></p>
   <img src="<%=bird.image%>" alt="<%=bird.common_name%>">
 
-  <p>Scientific Name: <%=bird.scientific_name%></p>
+  <form action="/birds/<%=bird.id%>" >
+     <button type="submit">View Details</button>
+  </form>
+  <% end %>
 
-  <a target="blank" href="/birds/<%=bird.id%>">View Details</a>
-
-
-<%end%>
-
-    <a href="/logout">Log Out</a>
-
-    <% else %>
+    <!-- <% else %>
         <h1> You Must Be Logged in to View Birds </h1>
         <a href="/login">Click here to log in</a>
-    <% end %>
-
-    <!-- <p>Family: <%=bird.family%></p>
-    <p>Description: <%=bird.description%></p>
-    <p>Conservation Status: <%=bird.conservation_status%></p>
-    <p>Habitat: <%=bird.habitat%></p>
-    <p>Feeding Behavior: <%=bird.feeding_behavior%></p>
-    <p>Eggs: <%=bird.eggs%></p>
-    <p>Young: <%=bird.young%></p>
-    <p>Diet: <%=bird.diet%></p> -->
+    <% end %> -->

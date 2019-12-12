@@ -1,20 +1,17 @@
-<h1>birds show.erb</h1>
-<p>build out to show details of a single bird entry</p>
+<!-- # <% if Helpers.logged_in?(session) %> -->
 
-
-
-  <h1>Common Name: <%=@bird.common_name%></h1>
-  <p>Scientific Name: <%=@bird.scientific_name%></p>
+<h1><%=@bird.common_name%></h1>
+  <h3><em><%=@bird.scientific_name%></em></h3>
   <img src="<%=@bird.image%>" alt="<%=@bird.common_name%>">
 
-  <p>Family: <%=@bird.family%></p>
-  <p>Description: <%=@bird.description%></p>
-  <p>Conservation Status: <%=@bird.conservation_status%></p>
-  <p>Habitat: <%=@bird.habitat%></p>
-  <p>Feeding Behavior: <%=@bird.feeding_behavior%></p>
-  <p>Eggs: <%=@bird.eggs%></p>
-  <p>Young: <%=@bird.young%></p>
-  <p>Diet: <%=@bird.diet%></p>
+  <p><strong>Family: </strong><%=@bird.family%></p>
+  <p><strong>Description: </strong><%=@bird.description%></p>
+  <p><strong>Conservation Status: </strong><%=@bird.conservation_status%></p>
+  <p><strong>Habitat: </strong><%=@bird.habitat%></p>
+  <p><strong>Feeding Behavior: </strong><%=@bird.feeding_behavior%></p>
+  <p><strong>Eggs: </strong><%=@bird.eggs%></p>
+  <p><strong>Young: </strong><%=@bird.young%></p>
+  <p><strong>Diet: </strong><%=@bird.diet%></p>
 
 
   <form action="<%=@bird.sightings[0].audubon_url%>" target="_blank" >
@@ -23,8 +20,14 @@
 
 <h2>Sightings of <%=@bird.common_name%></h2>
 <%  Sighting.where("bird_id = ?", @bird.id).each do |sighting| %>
-    <p>Seen by: <%=sighting.user.username%></p>
-    <p>Date: <%=sighting.date%></p>
-    <p>Location: <%=sighting.location%></p>
-    <p>Notes: <%=sighting.notes%></p>
+    <h3><strong>Seen by: </strong><%=sighting.user.username.capitalize%></strong></h3>
+    <p><strong>Date: </strong><%=sighting.date%></p>
+    <p><strong>Location: </strong><%=sighting.location%></p>
+    <p><strong>Notes: </strong><%=sighting.notes%></p>
+    <br>
   <% end %>
+<!--
+  <% else %>
+      <h1> You Must Be Logged in to View Birds </h1>
+      <a href="/login">Click here to log in</a>
+  <% end %> -->
