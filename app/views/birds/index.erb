@@ -1,16 +1,9 @@
-<!-- # <% if Helpers.logged_in?(session) %> -->
-
 <%@birds.each do |bird|%>
   <h2><%=bird.common_name%></h2>
   <p><em><%=bird.scientific_name%></em></p>
-  <img src="<%=bird.image%>" alt="<%=bird.common_name%>">
+  <a href="/birds/<%=bird.id%>"><img src="<%=bird.image%>" alt="<%=bird.common_name%>"></a>
 
   <form action="/birds/<%=bird.id%>" >
      <button type="submit">View Details</button>
   </form>
   <% end %>
-
-    <!-- <% else %>
-        <h1> You Must Be Logged in to View Birds </h1>
-        <a href="/login">Click here to log in</a>
-    <% end %> -->

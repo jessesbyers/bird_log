@@ -1,16 +1,14 @@
 <p><em>revise form to have radio button for birds already observed, and common locations</em></p>
 
 <h1>Create a New Bird Sighting</h1>
+<% if Helpers.logged_in?(session) %>
+
 <p><em>Use the Audubon Bird Guide to identify your bird, then record your sighting below.</em></p>
 <p><em>After dentifying your bird in the bird guide, copy the URL and paste it in the form below.</em></p>
 
 <form action="https://www.audubon.org/bird-guide" target="_blank" >
    <button type="submit">Go to Audubon Bird Guide</button>
 </form>
-
-
-
-<% if Helpers.logged_in?(session) %>
 
 <form action='/sightings' method="post">
   <p><label for="audubon_url">Audubon URL: </label>
@@ -25,6 +23,8 @@
 </form>
 
 <% else %>
-    <h1> You Must Be Logged in to Make Tweets </h1>
-    <a href="/login">Click here to log in</a>
+    <h1> You Must Be Logged in to Edit Sightings </h1>
+    <h1> You May Only Edit Your Own Sightings </h1>
+
+    <a href="/login">Click here to Log In</a>
 <% end %>

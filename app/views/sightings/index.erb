@@ -1,22 +1,27 @@
-<!-- <h1>sightings index.erb</h1> -->
-<p><em>check page after data re-seeded. include date, image, click on image to see sighting detail</em></p>
-
 <% if Helpers.logged_in?(session) %>
 
 <%@users.each do |user|%>
-<h3><%=user.username.capitalize%>'s Sightings</h3>
+<h1><%=user.username.capitalize%>'s Bird Sightings</h1>
   <%user.sightings.each do |sighting|%>
     <h2><%=sighting.bird.common_name%></h2>
-    <p><em><%=bird.scientific_name%></em></p>
-    <p><%=sighting.date%><p>
+    <p><em><%=sighting.bird.scientific_name%></em></p>
+
+    <%if sighting.user_id == Helpers.current_user(session).id%>
+    <a href="/birds/<%=sighting.bird.id%>"><img src="<%=sighting.bird.image%>" alt="<%=sighting.bird.common_name%>"></a>
+
+    <form action="/birds/<%=sighting.bird.id%>" >
+       <button type="submit">View Details</button>
+    </form>
+    <% else %>
     <img src="<%=sighting.bird.image%>" alt="<%=sighting.bird.common_name%>">
-    <br>
+
+      <% end %>
   <%end%>
 <%end%>
 
-    <a href="/logout">Log Out</a>
+<% else %>
+    <h1> You Must Be Logged in to Edit Sightings </h1>
+    <h1> You May Only Edit Your Own Sightings </h1>
 
-    <% else %>
-        <h1> You Must Be Logged in to View Tweets </h1>
-        <a href="/login">Click here to log in</a>
-    <% end %>
+    <a href="/login">Click here to Log In</a>
+<% end %>

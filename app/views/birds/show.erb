@@ -1,5 +1,3 @@
-<!-- # <% if Helpers.logged_in?(session) %> -->
-
 <h1><%=@bird.common_name%></h1>
   <h3><em><%=@bird.scientific_name%></em></h3>
   <img src="<%=@bird.image%>" alt="<%=@bird.common_name%>">
@@ -26,8 +24,3 @@
     <p><strong>Notes: </strong><%=sighting.notes%></p>
     <br>
   <% end %>
-<!--
-  <% else %>
-      <h1> You Must Be Logged in to View Birds </h1>
-      <a href="/login">Click here to log in</a>
-  <% end %> -->
