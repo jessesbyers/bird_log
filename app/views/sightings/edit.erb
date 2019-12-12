@@ -6,12 +6,6 @@
 <% if Helpers.logged_in?(session) %>
 <h1>Edit Sighting</h1>
 
-<p>Audubon URL: <%=@sighting.audubon_url%></p>
-<p>Date: <%=@sighting.date%></p>
-<p>Location: <%=@sighting.location%></p>
-<p>Notes: <%=@sighting.notes%></p>
-
-
 <form method="post" action="/sightings/<%= @sighting.id %>">
   <input id="hidden" type="hidden" name="_method" value="patch">
   <label for="audubon_url">Audubon URL: </label>

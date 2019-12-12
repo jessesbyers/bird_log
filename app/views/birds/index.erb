@@ -5,17 +5,11 @@
 
 <%@birds.each do |bird|%>
   <h2>Common Name: <%=bird.common_name%></h2>
-  <p>Scientific Name: <%=bird.scientific_name%></p>
-  <p>Family: <%=bird.family%></p>
-  <p>Description: <%=bird.description%></p>
-  <p>Conservation Status: <%=bird.conservation_status%></p>
-  <p>Habitat: <%=bird.habitat%></p>
-  <p>Feeding Behavior: <%=bird.feeding_behavior%></p>
-  <p>Eggs: <%=bird.eggs%></p>
-  <p>Young: <%=bird.young%></p>
-  <p>Diet: <%=bird.diet%></p>
-  <p>Image: <a target="blank" href="<%=bird.image%>">Click here to view bird</a></p>
+  <img src="<%=bird.image%>" alt="<%=bird.common_name%>">
 
+  <p>Scientific Name: <%=bird.scientific_name%></p>
+
+  <a target="blank" href="/birds/<%=bird.id%>">View Details</a>
 
 
 <%end%>
@@ -23,6 +17,15 @@
     <a href="/logout">Log Out</a>
 
     <% else %>
-        <h1> You Must Be Logged in to View Tweets </h1>
+        <h1> You Must Be Logged in to View Birds </h1>
         <a href="/login">Click here to log in</a>
     <% end %>
+
+    <!-- <p>Family: <%=bird.family%></p>
+    <p>Description: <%=bird.description%></p>
+    <p>Conservation Status: <%=bird.conservation_status%></p>
+    <p>Habitat: <%=bird.habitat%></p>
+    <p>Feeding Behavior: <%=bird.feeding_behavior%></p>
+    <p>Eggs: <%=bird.eggs%></p>
+    <p>Young: <%=bird.young%></p>
+    <p>Diet: <%=bird.diet%></p> -->

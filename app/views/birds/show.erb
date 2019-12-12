@@ -1,0 +1,30 @@
+<h1>birds show.erb</h1>
+<p>build out to show details of a single bird entry</p>
+
+
+
+  <h1>Common Name: <%=@bird.common_name%></h1>
+  <p>Scientific Name: <%=@bird.scientific_name%></p>
+  <img src="<%=@bird.image%>" alt="<%=@bird.common_name%>">
+
+  <p>Family: <%=@bird.family%></p>
+  <p>Description: <%=@bird.description%></p>
+  <p>Conservation Status: <%=@bird.conservation_status%></p>
+  <p>Habitat: <%=@bird.habitat%></p>
+  <p>Feeding Behavior: <%=@bird.feeding_behavior%></p>
+  <p>Eggs: <%=@bird.eggs%></p>
+  <p>Young: <%=@bird.young%></p>
+  <p>Diet: <%=@bird.diet%></p>
+
+
+  <form action="<%=@bird.sightings[0].audubon_url%>" target="_blank" >
+     <button type="submit">View bird in the Audubon Field Guide to Learn More</button>
+  </form>
+
+<h2>Sightings of <%=@bird.common_name%></h2>
+<%  Sighting.where("bird_id = ?", @bird.id).each do |sighting| %>
+    <p>Seen by: <%=sighting.user.username%></p>
+    <p>Date: <%=sighting.date%></p>
+    <p>Location: <%=sighting.location%></p>
+    <p>Notes: <%=sighting.notes%></p>
+  <% end %>

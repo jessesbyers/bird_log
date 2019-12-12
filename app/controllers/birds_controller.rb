@@ -8,4 +8,13 @@ class BirdsController < ApplicationController
       redirect '/login'
     end
   end
+
+  get '/birds/:id' do
+    if Helpers.logged_in?(session)
+       @bird = Bird.find_by_id(params[:id])
+       erb:'birds/show'
+     else
+       redirect to '/login'
+     end
+  end
 end

@@ -13,17 +13,40 @@
 <p>Notes: <%=@sighting.notes%></p>
 
 
+<form action="/sightings/<%=@sighting.id%>/edit" >
+   <button type="submit">Edit Sighting</button>
+</form>
 
-
-<a href="/sightings/<%=@sighting.id%>/edit">Click here to Edit Sighting</a>
 
 <form action="/sightings/<%=@sighting.id%>/delete" method="post">
  <input id="hidden" type="hidden" name="_method" value="delete">
  <input id="Delete" type="submit" value="Delete Sighting">
 </form>
 
+
+<h2>Bird Details</h2>
+
+
+  <h1>Common Name: <%=@sighting.bird.common_name%></h1>
+  <p>Scientific Name: <%=@sighting.bird.scientific_name%></p>
+  <img src="<%=@sighting.bird.image%>" alt="<%=@sighting.bird.common_name%>">
+
+  <p>Family: <%=@sighting.bird.family%></p>
+  <p>Description: <%=@sighting.bird.description%></p>
+  <p>Conservation Status: <%=@sighting.bird.conservation_status%></p>
+  <p>Habitat: <%=@sighting.bird.habitat%></p>
+  <p>Feeding Behavior: <%=@sighting.bird.feeding_behavior%></p>
+  <p>Eggs: <%=@sighting.bird.eggs%></p>
+  <p>Young: <%=@sighting.bird.young%></p>
+  <p>Diet: <%=@sighting.bird.diet%></p>
+
+
+  <form action="<%=@sighting.audubon_url%>" target="_blank" >
+     <button type="submit">View bird in the Audubon Field Guide to Learn More</button>
+  </form>
+
+
 <% else %>
     <h1> You Must Be Logged in to View Sightings </h1>
     <a href="/login">Click here to log in</a>
-
 <% end %>

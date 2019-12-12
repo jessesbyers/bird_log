@@ -19,20 +19,10 @@ class SightingsController < ApplicationController
 
   post '/sightings' do
     if params[:audubon_url] != ""
-      @sighting = Sighting.create(:audubon_url => params[:audubon_url], :date => params[:date], :location => params[:location], :notes => params[:notes], :user_id => Helpers.current_user(session).id)
-
-      new_bird = Bird.new(Bird.scrape_attributes(@sighting.audubon_url))
-      # if Bird.all.include?(bird.common_name)
-
-      Bird.all.each do |bird|
-        if bird.common_name.match?(new_bird.common_name)
-          @sighting.bird_id = Bird.find_by(common_name: new_bird.common_name).id
-          new_bird.delete
-        else
-          new_bird.save
-          @sighting.bird_id = bird.id
-        end
-      end
+      @sighting = Sighting.new(:audubon_url => params[:audubon_url], :date => params[:date], :location => params[:location], :notes => params[:notes], :user_id => Helpers.current_user(session).id)
+      bird = Bird.find_or_create_by(Bird.scrape_attributes(@sighting.audubon_url))
+      @sighting.bird_id = bird.id
+      @sighting.save
 
       redirect to "/sightings/#{@sighting.id}"
     else
@@ -61,18 +51,17 @@ class SightingsController < ApplicationController
   patch '/sightings/:id' do
     if Helpers.logged_in?(session)
       @sighting = Sighting.find_by_id(params[:id])
-      # if params[:audubon_url] == ""
-      #   redirect "/sightings/#{@sighting.id}/edit"
-      # else
+      if params[:audubon_url] == ""
+        redirect "/sightings/#{@sighting.id}/edit"
+      else
         @sighting.audubon_url = params[:audubon_url]
         @sighting.date = params[:date]
         @sighting.location = params[:location]
         @sighting.notes = params[:notes]
         @sighting.user_id = Helpers.current_user(session).id
-        # @sighting.bird_id = #need to figure out later
         @sighting.save
         redirect to "/sightings/#{@sighting.id}"
-      # end
+      end
     else
       redirect to '/login'
     end

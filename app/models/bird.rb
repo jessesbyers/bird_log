@@ -4,7 +4,6 @@ class Bird < ActiveRecord::Base
 
   def self.scrape_attributes(url)
     html = open(url)
-    # html = open("https://www.audubon.org/field-guide/bird/aberts-towhee")
     doc = Nokogiri::HTML(html)
 
     attributes = {
@@ -21,5 +20,4 @@ class Bird < ActiveRecord::Base
       :image => doc.css("div.medium-4 img").attribute("src").value
      }
   end
-
 end
