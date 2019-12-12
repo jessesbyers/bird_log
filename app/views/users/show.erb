@@ -1,10 +1,11 @@
-<h1>show.erb</h1>
-<p>build out to show profile of a single user using slug name</p>
+<p><em>need to fix this page or delete it</em></p>
 
-<h1>Your Tweets</h1>
+<h1>My Sightings</h1>
 
-<%@user.sightings.each do |sighting|%>
-<p><%=sighting.audubon_url%><p>
-  <p><%=finish adding other attributes%><p>
-
+<%@user.sightings.reverse.each do |sighting|%>
+      <h2><%=sighting.bird.common_name%></h2>
+      <p><em><%=bird.scientific_name%></em></p>
+      <p><%=sighting.date%><p>
+      <img src="<%=sighting.bird.image%>" alt="<%=sighting.bird.common_name%>">
+    <br>
 <%end%>

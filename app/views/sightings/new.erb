@@ -1,23 +1,26 @@
-<h1>sightings new.erb</h1>
-<p>build out form to create a new sighting</p>
+<p><em>revise form to have radio button for birds already observed, and common locations</em></p>
+
+<h1>Create a New Bird Sighting</h1>
+<p><em>Use the Audubon Bird Guide to identify your bird, then record your sighting below.</em></p>
+<p><em>After dentifying your bird in the bird guide, copy the URL and paste it in the form below.</em></p>
 
 <form action="https://www.audubon.org/bird-guide" target="_blank" >
-   <button type="submit">Click to Identify bird in Audubon Bird Guide</button>
+   <button type="submit">Go to Audubon Bird Guide</button>
 </form>
 
-<p>After Identifying your bird in the bird guide, copy the URL and paste it in the form below.</p>
 
 
-# <% if Helpers.logged_in?(session) %>
+<% if Helpers.logged_in?(session) %>
+
 <form action='/sightings' method="post">
-  <label for="audubon_url">Audubon URL: </label>
-    <p><input type="string" name="audubon_url" required></p>
-  <label for="date">Date: </label>
-    <p><input type="date" name="date" required></p>
-  <label for="location">Location: </label>
-    <p><input type="string" name="location" required></p>
-  <label for="notes">Notes</label>
-    <p><input type="text" name="notes" required></p>
+  <p><label for="audubon_url">Audubon URL: </label>
+    <input type="string" name="audubon_url" required></p>
+  <p><label for="date">Date: </label>
+    <input type="date" name="date" required></p>
+  <p><label for="location">Location: </label>
+    <input type="string" name="location" required></p>
+  <p><label for="notes">Notes: </label>
+    <input type="text" name="notes" required></p>
   <input type="submit" name="submit" value="Create New Sighting">
 </form>
 

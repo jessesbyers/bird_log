@@ -18,7 +18,7 @@
      <button type="submit">View bird in the Audubon Field Guide to Learn More</button>
   </form>
 
-<h2>Sightings of <%=@bird.common_name%></h2>
+<h2><%=@bird.common_name%> Sightings</h2>
 <%  Sighting.where("bird_id = ?", @bird.id).each do |sighting| %>
     <h3><strong>Seen by: </strong><%=sighting.user.username.capitalize%></strong></h3>
     <p><strong>Date: </strong><%=sighting.date%></p>

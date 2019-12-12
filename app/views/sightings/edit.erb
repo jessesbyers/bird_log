@@ -1,21 +1,16 @@
-<h1>sightings edit.erb</h1>
-<p>build out to edit details of a single sighting</p>
-
-
-
 <% if Helpers.logged_in?(session) %>
 <h1>Edit Sighting</h1>
 
 <form method="post" action="/sightings/<%= @sighting.id %>">
   <input id="hidden" type="hidden" name="_method" value="patch">
-  <label for="audubon_url">Audubon URL: </label>
-    <p><input type="string" name="audubon_url" value="<%= @sighting.audubon_url %>" required></p>
-  <label for="date">Date: </label>
-    <p><input type="date" name="date" value="<%= @sighting.date %>" required></p>
-  <label for="location">Location: </label>
-    <p><input type="string" name="location" value="<%= @sighting.location %>" required></p>
-  <label for="notes">Notes: </label>
-    <p><input type="text" name="notes" value="<%= @sighting.notes %>" required></p>
+  <p><label for="audubon_url">Audubon URL: </label>
+    <input type="string" name="audubon_url" value="<%= @sighting.audubon_url %>" required></p>
+  <p><label for="date">Date: </label>
+    <input type="date" name="date" value="<%= @sighting.date %>" required></p>
+  <p><label for="location">Location: </label>
+    <input type="string" name="location" value="<%= @sighting.location %>" required></p>
+  <p><label for="notes">Notes: </label>
+    <input type="text" name="notes" value="<%= @sighting.notes %>" required></p>
   <input id="submit" type="submit" value="Edit Sighting">
 </form>
 
