@@ -31,21 +31,25 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect '/sightings'
     else
-      redirect '/login'
+      redirect '/'
     end
   end
 
   get "/users/:id" do
-    @user = User.find_by(params[:id])
-    erb :'users/show'
+    if Helpers.logged_in?(session)
+      @user = User.find_by(params[:id])
+      erb :'users/show'
+    else
+      redirect '/'
+    end
   end
 
   get '/logout' do
     if Helpers.logged_in?(session)
       session.clear
-      redirect '/login'
+      redirect '/'
     else
-      redirect '/login'
+      redirect '/'
     end
   end
 
