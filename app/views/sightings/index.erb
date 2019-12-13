@@ -1,5 +1,4 @@
 <% if Helpers.logged_in?(session) %>
-
 <%@users.each do |user|%>
 <h1><%=user.username.capitalize%>'s Bird Sightings</h1>
   <%user.sightings.each do |sighting|%>

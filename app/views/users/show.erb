@@ -1,5 +1,6 @@
 
-<h1>Recent Sightings</h1>
+<h1>My Recent Sightings</h1>
+
 
 <%@user.sightings.reverse.each do |sighting|%>
       <h2><%=sighting.bird.common_name%></h2>
@@ -12,4 +13,5 @@
          <button type="submit">View Details</button>
       </form>
     <br>
+
 <%end%>

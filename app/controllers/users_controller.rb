@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     end
   end
 
-  get "/users/:id" do
+  get "/users" do
     if Helpers.logged_in?(session)
       @user = User.find_by(params[:id])
       erb :'users/show'
