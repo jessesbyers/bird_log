@@ -16,21 +16,21 @@
 </form>
 
 
-<h1><%=@sighting.bird.common_name%> Details</h1>
+<h1><%=@sighting.bird.common_name%></h1>
   <p><em><%=@sighting.bird.scientific_name%></em></p>
   <img src="<%=@sighting.bird.image%>" alt="<%=@sighting.bird.common_name%>">
 
-  <p><strong>Family: </strong><%=@sighting.bird.family%></p>
+  <!-- <p><strong>Family: </strong><%=@sighting.bird.family%></p>
   <p><strong>Description: </strong><%=@sighting.bird.description%></p>
   <p><strong>Conservation Status: </strong><%=@sighting.bird.conservation_status%></p>
   <p><strong>Habitat: </strong><%=@sighting.bird.habitat%></p>
   <p><strong>Feeding Behavior: </strong><%=@sighting.bird.feeding_behavior%></p>
   <p><strong>Eggs: </strong><%=@sighting.bird.eggs%></p>
   <p><strong>Young: </strong><%=@sighting.bird.young%></p>
-  <p><strong>Diet: </strong><%=@sighting.bird.diet%></p>
+  <p><strong>Diet: </strong><%=@sighting.bird.diet%></p> -->
 
-  <form action="<%=@sighting.audubon_url%>" target="_blank" >
-     <button type="submit">View bird in the Audubon Field Guide to Learn More</button>
+  <form action="/birds/<%=@sighting.bird.id%>">
+     <button type="submit">View Bird Details</button>
   </form>
 
   <% else %>

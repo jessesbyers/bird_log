@@ -10,7 +10,7 @@
     <a href="/sightings/<%=sighting.id%>"><img src="<%=sighting.bird.image%>" alt="<%=sighting.bird.common_name%>"></a>
 
     <form action="/sightings/<%=sighting.id%>" >
-       <button type="submit">View Details</button>
+       <button type="submit">View Sighting Details</button>
     </form>
     <% else %>
     <img src="<%=sighting.bird.image%>" alt="<%=sighting.bird.common_name%>">
