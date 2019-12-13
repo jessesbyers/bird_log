@@ -1,6 +1,18 @@
+
+
+<% if Helpers.logged_in?(session) %>
+<h1>Welcome to Bird Log, <%=Helpers.current_user(session).username%>!</h1>
+
 <p><em>need to include intro, directions</em></p>
 
+<p>Use the links above to ...<p>
+
+
+
+<%else%>
 <h1>Welcome to Bird Log!</h1>
+
+<p><em>need to include intro, directions</em></p>
 
 <form action="/signup" >
    <button type="submit">New Users: Create an Account</button>
@@ -9,3 +21,5 @@
 <form action="/login" >
    <button type="submit">Current Users: Log In</button>
 </form>
+
+<%end%>
