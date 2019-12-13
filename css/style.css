@@ -1,0 +1,40 @@
+body,header, h1,h2,h3,h4,h5,h6 {font-family: 'Open Sans', sans-serif}
+
+body header {
+  background-color: #659DBD;
+  position: relative;
+  width: 100%;
+  align-content: space-around;
+  padding: 2em;
+}
+
+h1 {
+  font-size: 70px;
+  color: #FBEEC1;
+  align-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: stretch;
+  width: inherit;
+}
+
+.wrapper div {
+  /*background-color: #FBEEC1;*/
+  padding: 1em;
+}
+
+button {
+  background-color: #FBEEC1;
+  size: 30px;
+  padding: 1em;
+  margin: 1em;
+}
+
+body {
+  background-color: #BC986A;
+  padding: 2em;
+}
