@@ -13,10 +13,8 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       redirect "/sightings"
-    else
-      @error = @user.errors.messages
-      redirect "/signup"
     end
+    redirect "/failure"
   end
 
   get '/login' do
@@ -49,5 +47,9 @@ class UsersController < ApplicationController
     else
       redirect '/login'
     end
+  end
+
+  get '/failure' do
+    erb :'users/failure'
   end
 end
