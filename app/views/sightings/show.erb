@@ -34,10 +34,15 @@
   </form>
 
   <% else %>
-      <h1> You Must Be Logged in to View Sightings </h1>
-      <h1> You May Only Edit or Delete Your Own Sightings </h1>
 
-      <a href="/login">Click here to Log In</a>
-      <a href="/users">Return to Sightings</a>
+      <h3> You Must Be Logged in to View Sightings </h3>
+      <h3> You May Only Edit or Delete Your Own Sightings </h3>
+      <br>
+      <form action="/login" >
+         <button type="submit">Log In</button>
+      </form>
+      <form action="/sightings" >
+         <button type="submit">Return to Sightings</button>
+      </form>
 
   <% end %>

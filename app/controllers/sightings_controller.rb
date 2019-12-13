@@ -35,7 +35,7 @@ class SightingsController < ApplicationController
        @sighting = Sighting.find_by_id(params[:id])
        erb:'sightings/show'
      else
-       redirect to '/login'
+       redirect to '/sightings'
      end
   end
 

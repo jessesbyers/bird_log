@@ -15,8 +15,15 @@
 </form>
 
 <% else %>
-    <h1> You Must Be Logged in to Edit Sightings </h1>
-    <h1> You May Only Edit Your Own Sightings </h1>
+  <h3> You Must Be Logged in to Edit Sightings </h3>
+  <h3> You May Only Edit Your Own Sightings </h3>
+  <br>
+  <form action="/sightings" >
+     <button type="submit">Return to Sightings</button>
+  </form>
 
-    <a href="/login">Click here to Log In</a>
+  <form action="/login" >
+     <button type="submit">Log In</button>
+  </form>
+
 <% end %>
