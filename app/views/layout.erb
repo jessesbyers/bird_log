@@ -3,47 +3,48 @@
 <head>
   <title>Bird Log</title>
   <link rel="stylesheet" href="./css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <header>
   <div>
     <h1>Bird Log</h1>
-
     </div>
+
       <div class="wrapper">
       <% if Helpers.logged_in?(session) %>
 
         <div>
           <form action="/birds" >
-             <button type="submit">All Birds</button>
+             <button class="large" type="submit">All Birds</button>
           </form>
         </div>
 
         <div>
           <form action="/birds" >
-             <button type="submit">My Birds</button>
+             <button class="large" type="submit">My Birds</button>
           </form>
         </div>
 
 
         <div>
           <form action="/sightings" >
-             <button type="submit">All Sightings</button>
+             <button class="large" type="submit">All Sightings</button>
           </form>
         </div>
 
 
         <div>
           <form action="/sightings/new" >
-             <button type="submit">New Sighting</button>
+             <button class="large" type="submit">New Sighting</button>
           </form>
         </div>
 
 
         <div>
           <form action="/logout" >
-             <button type="submit">Logout <%=Helpers.current_user(session).username%></button>
+             <button class="large" type="submit">Logout <%=Helpers.current_user(session).username%></button>
           </form>
         </div>
 
@@ -51,13 +52,13 @@
         <% else %>
           <div>
             <form action="/signup" >
-               <button type="submit">Sign Up</button>
+               <button class="large" type="submit">New Users: Create an Account</button>
             </form>
           </div>
 
           <div>
             <form action="/login" >
-               <button type="submit">Log In</button>
+               <button class= "large" type="submit">Current Users: Log In</button>
             </form>
           </div>
       <% end %>

@@ -1,27 +1,39 @@
-<% if Helpers.logged_in?(session) %>
-<%@users.each do |user|%>
-<h1><%=user.username.capitalize%>'s Bird Sightings</h1>
-  <%user.sightings.each do |sighting|%>
-    <h2><%=sighting.bird.common_name%></h2>
-    <p><em><%=sighting.bird.scientific_name%></em></p>
+  <% if Helpers.logged_in?(session) %>
+  <%@users.each do |user|%>
 
-    <%if sighting.user_id == Helpers.current_user(session).id%>
-    <a href="/sightings/<%=sighting.id%>"><img src="<%=sighting.bird.image%>" alt="<%=sighting.bird.common_name%>"></a>
+  <div class="row">
+  <div class="card title">
+    <h2><%=user.username.capitalize%>'s Bird Sightings</h2>
+  </div>
+        <%user.sightings.each do |sighting|%>
+        <div class="card"
 
-    <form action="/sightings/<%=sighting.id%>" >
-       <button type="submit">View Sighting Details</button>
-    </form>
-    <% else %>
-    <img src="<%=sighting.bird.image%>" alt="<%=sighting.bird.common_name%>">
-      <%end%>
+          <h2><%=sighting.bird.common_name%></h2>
+          <p><em><%=sighting.bird.scientific_name%></em></p>
+
+          <%if sighting.user_id == Helpers.current_user(session).id%>
+          <a href="/sightings/<%=sighting.id%>"><img src="<%=sighting.bird.image%>" alt="<%=sighting.bird.common_name%>"></a>
+
+          <form action="/sightings/<%=sighting.id%>" >
+             <button type="submit">View Sighting Details</button>
+          </form>
+          <% else %>
+          <img src="<%=sighting.bird.image%>" alt="<%=sighting.bird.common_name%>">
+            <%end%>
+          </div>
+
+        <%end%>
+    </div>
+
   <%end%>
-<%end%>
 
-<% else %>
-    <h3> You Must Be Logged in to Edit Sightings </h3>
-    <h3> You May Only Edit Your Own Sightings </h3>
 
-    <form action="/login" >
-       <button type="submit">Log In</button>
-    </form>
-<% end %>
+
+  <% else %>
+      <h3> You Must Be Logged in to Edit Sightings </h3>
+      <h3> You May Only Edit Your Own Sightings </h3>
+
+      <form action="/login" >
+         <button type="submit">Log In</button>
+      </form>
+  <% end %>
