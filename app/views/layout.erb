@@ -2,45 +2,46 @@
 <html lang="en">
 <head>
   <title>Bird Log</title>
-  <link rel="stylesheet" href="./css/style.css">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="./css/style.css"> -->
+  <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"> -->
+  <style>
+    .wrapper {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-auto-rows: minmax(50px, auto);
+      align-items: end;
+      /*grid-gap: 1em;*/
+      /*justify-items: end;*/
+    }
+
+    /*.wrapper > div {
+      padding: 1em;
+    }*/
+
+  </style>
 </head>
+
 <body>
 
 <header>
+  <div class="wrapper">
   <div>
     <h1>Bird Log</h1>
     </div>
 
-      <div class="wrapper">
       <% if Helpers.logged_in?(session) %>
 
-        <div>
-          <form action="/birds" >
-             <button class="large" type="submit">All Birds</button>
-          </form>
-        </div>
+      <div>
+        <form action="/birds" >
+           <button class="large" type="submit">All Birds</button>
+        </form>
+      </div>
 
-        <div>
-          <form action="/birds" >
-             <button class="large" type="submit">My Birds</button>
-          </form>
-        </div>
-
-
-        <div>
-          <form action="/sightings" >
-             <button class="large" type="submit">All Sightings</button>
-          </form>
-        </div>
-
-
-        <div>
-          <form action="/sightings/new" >
-             <button class="large" type="submit">New Sighting</button>
-          </form>
-        </div>
-
+      <div>
+        <form action="/birds" >
+           <button class="large" type="submit">My Birds</button>
+        </form>
+      </div>
 
         <div>
           <form action="/logout" >
@@ -48,6 +49,17 @@
           </form>
         </div>
 
+        <div>
+          <form action="/sightings" >
+             <button class="large" type="submit">All Sightings</button>
+          </form>
+        </div>
+
+        <div>
+          <form action="/sightings/new" >
+             <button class="large" type="submit">New Sighting</button>
+          </form>
+        </div>
 
         <% else %>
           <div>
@@ -67,6 +79,11 @@
   </header>
 
   <%= yield %>
+
+  <footer>
+    <p>add footer content here</p>
+  </footer>
+
 
 </body>
 </html>
