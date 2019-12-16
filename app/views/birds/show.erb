@@ -1,23 +1,43 @@
+<div class="birdshow">
+  <div class="details">
+    <div class="card">
 <h1><%=@bird.common_name%></h1>
   <h3><em><%=@bird.scientific_name%></em></h3>
+  <p><strong>Family: </strong><%=@bird.family%></p>
+  <form action="<%=@bird.sightings[0].audubon_url%>" target="_blank" >
+     <button type="submit">View bird in the Audubon Field Guide to Learn More</button>
+  </form>
+</div>
+
+  <div class="card">
   <img src="<%=@bird.image%>" alt="<%=@bird.common_name%>">
 
-  <p><strong>Family: </strong><%=@bird.family%></p>
+</div>
+
+
+  <div class="card">
   <p><strong>Description: </strong><%=@bird.description%></p>
   <p><strong>Conservation Status: </strong><%=@bird.conservation_status%></p>
   <p><strong>Habitat: </strong><%=@bird.habitat%></p>
+</div>
+
+
+  <div class="card">
   <p><strong>Feeding Behavior: </strong><%=@bird.feeding_behavior%></p>
   <p><strong>Eggs: </strong><%=@bird.eggs%></p>
   <p><strong>Young: </strong><%=@bird.young%></p>
   <p><strong>Diet: </strong><%=@bird.diet%></p>
 
 
-  <form action="<%=@bird.sightings[0].audubon_url%>" target="_blank" >
-     <button type="submit">View bird in the Audubon Field Guide to Learn More</button>
-  </form>
 
+</div>
+
+</div>
+
+<div class="section">
 <h2><%=@bird.common_name%> Sightings</h2>
 <%  Sighting.where("bird_id = ?", @bird.id).each do |sighting| %>
+<div class="card">
     <h3><strong>Seen by: </strong><%=sighting.user.username.capitalize%></strong></h3>
     <p><strong>Date: </strong><%=sighting.date%></p>
     <p><strong>Location: </strong><%=sighting.location%></p>
@@ -29,4 +49,7 @@
     </form>
     <br>
       <%end%>
+    </div>
   <% end %>
+</div>
+</div>

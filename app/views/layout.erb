@@ -2,30 +2,49 @@
 <html lang="en">
 <head>
   <title>Bird Log</title>
-  <!-- <link rel="stylesheet" type="text/css" href="./css/style.css"> -->
-  <!-- <link rel="stylesheet" type="text/css" href="/public/css/style.css"> -->
   <link rel="stylesheet" type="text/css" href="/css/style.css">
-
   <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"> -->
   <style>
     header .wrapper {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
-      /*grid-auto-rows: minmax(auto);*/
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
       grid-gap: 1em;
+      background-color: yellow;
+      border-radius: 12px;
+
+      /*padding: 1em;*/
+      /*margin: 1em;*/
     }
 
     header button {
       /*background-color: #FBEEC1;*/
       width: 100%;
       padding: 1em;
-      margin: 1em;
+      /*margin: 1em;*/
       border-radius: 12px;
     }
     body {
       margin: 1em;
+      background-color: grey;
     }
 
+    div {
+      margin: 1em;
+      padding: 1em;
+      border-radius: 12px;
+
+
+
+    }
+
+    footer {
+      text-align: right;
+      background-color: yellow;
+      padding: 1em;
+      margin: 1em;
+      border-radius: 12px;
+
+    }
   </style>
 </head>
 
@@ -41,17 +60,9 @@
 
       <div>
         <form action="/birds" >
-           <button class="large" type="submit">All Birds</button>
+           <button class="large" type="submit">Birds</button>
         </form>
       </div>
-
-      <div>
-        <form action="/birds" >
-           <button class="large" type="submit">My Birds</button>
-        </form>
-      </div>
-
-
 
         <div>
           <form action="/sightings" >
