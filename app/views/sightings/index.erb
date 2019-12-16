@@ -1,7 +1,7 @@
   <% if Helpers.logged_in?(session) %>
   <%@users.each do |user|%>
 
-  <div class="row">
+  <div class="section">
   <div class="card title">
     <h2><%=user.username.capitalize%>'s Bird Sightings</h2>
   </div>
