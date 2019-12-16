@@ -51,9 +51,17 @@ div.birdshow div.details {
   background-color: blue;
   padding: 1em;
   border-radius: 12px;
-
 }
 
+div.home div.section {
+  display: grid;
+  grid-template-columns: 1fr, 1fr, 1fr, 1fr, 1fr;
+  grid-gap: 1em;
+  margin: 1em;
+  background-color: blue;
+  padding: 1em;
+  border-radius: 12px;
+}
 
 div.show div.card img {
   display: block;
@@ -67,8 +75,6 @@ div.show div.card img {
 .card.title {
   background-color: inherit;
   border-radius: 12px;
-
-
 }
 
 div.card button, input#Delete {
@@ -78,6 +84,8 @@ div.card button, input#Delete {
   margin: 1em;
   border-radius: 12px;
 }
+
+
 
 button {
   width: auto;
@@ -89,5 +97,4 @@ button {
 img {
   height: 100px;
   border-radius: 12px;
-
 }

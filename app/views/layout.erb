@@ -7,13 +7,17 @@
   <style>
     header .wrapper {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
       grid-gap: 1em;
       background-color: yellow;
       border-radius: 12px;
 
       /*padding: 1em;*/
       /*margin: 1em;*/
+    }
+
+    div {
+      text-align: center;
     }
 
     header button {
@@ -59,6 +63,12 @@
       <% if Helpers.logged_in?(session) %>
 
       <div>
+        <form action="/users" >
+           <button class="large" type="submit">Home</button>
+        </form>
+      </div>
+
+      <div>
         <form action="/birds" >
            <button class="large" type="submit">Birds</button>
         </form>
@@ -83,7 +93,7 @@
         </div>
 
         <% else %>
-          <div>
+          <div class="center">
             <form action="/signup" >
                <button class="large" type="submit">New Users: Create an Account</button>
             </form>

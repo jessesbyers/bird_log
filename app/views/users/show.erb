@@ -1,17 +1,35 @@
+<div class="home">
+  <div class="section">
+    <div class="card title">
+      <h1>My Birds</h1>
+    </div>
+      <%@user.birds.each do |bird|%>
+      <div class="card">
+            <h2><%=bird.common_name%></h2>
+            <p><em><%=bird.scientific_name%></em></p>
 
-<h1>My Recent Sightings</h1>
+            <a href="/birds/<%=bird.id%>"><img src="<%=bird.image%>" alt="<%=bird.common_name%>"></a>
+
+            <form action="/birds/<%=bird.id%>" >
+               <button type="submit">View Bird</button>
+            </form>
+      </div>
+      <%end%>
+    </div>
 
 
+    <div class="section">
+      <div class="card title">
+    <h1>My Sightings</h1>
+  </div>
 <%@user.sightings.reverse.each do |sighting|%>
-      <h2><%=sighting.bird.common_name%></h2>
-      <p><em><%=sighting.bird.scientific_name%></em></p>
-      <p><%=sighting.date%><p>
-
-      <a href="/birds/<%=sighting.bird.id%>"><img src="<%=sighting.bird.image%>" alt="<%=sighting.bird.common_name%>"></a>
-
+    <div class="card">
+      <h2><%=sighting.date%></h2>
+      <p><%=sighting.bird.common_name%></p>
       <form action="/birds/<%=sighting.bird.id%>" >
-         <button type="submit">View Details</button>
+         <button type="submit">View Sighting</button>
       </form>
-    <br>
-
+</div>
 <%end%>
+</div>
+</div>
