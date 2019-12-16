@@ -3,7 +3,7 @@
     <div class="card title">
       <h1>My Birds</h1>
     </div>
-      <%@user.birds.each do |bird|%>
+      <%@user.birds.uniq.each do |bird|%>
       <div class="card">
             <h2><%=bird.common_name%></h2>
             <p><em><%=bird.scientific_name%></em></p>

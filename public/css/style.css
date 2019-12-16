@@ -4,10 +4,9 @@ div.section {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 1em;
     margin: 1em;
-    background-color: blue;
+    background-color: #FBEEC1;
     padding: 1em;
     border-radius: 12px;
-
 }
 
 .section.new {
@@ -15,18 +14,18 @@ div.section {
   grid-template-columns: 1fr 2fr;
   grid-auto-rows: minmax(100px, auto);
   border-radius: 12px;
-
+  background-color: #FBEEC1;
 }
 
 div.show {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   border-radius: 12px;
-
+  grid-gap: 1em;
+  padding: 1em;
 }
 
 div.card {
-  border: 1px solid black;
   padding: 1em;
   border-radius: 12px;
   background-color: white;
@@ -37,18 +36,17 @@ div.birdshow div.section {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 1em;
   margin: 1em;
-  background-color: blue;
+  background-color: #FBEEC1;
   padding: 1em;
   border-radius: 12px;
-
 }
 
 div.birdshow div.details {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1em;
   margin: 1em;
-  background-color: blue;
+  background-color: #FBEEC1;
   padding: 1em;
   border-radius: 12px;
 }
@@ -58,7 +56,7 @@ div.home div.section {
   grid-template-columns: 1fr, 1fr, 1fr, 1fr, 1fr;
   grid-gap: 1em;
   margin: 1em;
-  background-color: blue;
+  background-color: #FBEEC1;
   padding: 1em;
   border-radius: 12px;
 }
@@ -69,30 +67,27 @@ div.show div.card img {
   margin-right: auto;
   height: 300px;
   border-radius: 12px;
-
 }
 
-.card.title {
+div.card.title {
   background-color: inherit;
   border-radius: 12px;
 }
 
 div.card button, input#Delete {
-  /*background-color: #FBEEC1;*/
+  background-color: #FBEEC1;
   width: auto;
   padding: 1em;
   margin: 1em;
   border-radius: 12px;
 }
-
-
 
 button {
   width: auto;
   padding: 1em;
   margin: 1em;
   border-radius: 12px;
-}
+  background-color: #FBEEC1;}
 
 img {
   height: 100px;
