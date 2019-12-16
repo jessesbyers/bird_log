@@ -1,5 +1,6 @@
+
 <div class="section new">
-  <div>
+  <div class="card">
 <h1>1. Identify your Bird</h1>
 <% if Helpers.logged_in?(session) %>
 
@@ -10,7 +11,7 @@
 </form>
 </div>
 
-<div>
+<div class="card">
   <h1>2. Create a New Bird Sighting</h1>
   <p><em>After identifying your bird in the bird guide, copy the URL and paste it in the form below.</em></p>
 
@@ -22,10 +23,10 @@
   <p><label for="location">Location: </label>
     <input type="string" name="location" required></p>
   <p><label for="notes">Notes: </label>
-    <input type="text" name="notes" required></p>
+    <input type="string" name="notes" required></p>
   <input type="submit" name="submit" value="Create New Sighting">
 </form>
-<div>
+</div>
 
 <% else %>
 <div>
