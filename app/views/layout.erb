@@ -6,20 +6,25 @@
   <!-- <link rel="stylesheet" type="text/css" href="/public/css/style.css"> -->
   <link rel="stylesheet" type="text/css" href="/css/style.css">
 
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"> -->
   <style>
     header .wrapper {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      grid-auto-rows: minmax(50px, auto);
-      align-items: end;
-      /*grid-gap: 1em;*/
-      /*justify-items: end;*/
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
+      /*grid-auto-rows: minmax(auto);*/
+      grid-gap: 1em;
     }
 
-    /*.wrapper > div {
+    header button {
+      /*background-color: #FBEEC1;*/
+      width: 100%;
       padding: 1em;
-    }*/
+      margin: 1em;
+      border-radius: 12px;
+    }
+    body {
+      margin: 1em;
+    }
 
   </style>
 </head>
@@ -46,11 +51,7 @@
         </form>
       </div>
 
-        <div>
-          <form action="/logout" >
-             <button class="large" type="submit">Logout <%=Helpers.current_user(session).username%></button>
-          </form>
-        </div>
+
 
         <div>
           <form action="/sightings" >
@@ -61,6 +62,12 @@
         <div>
           <form action="/sightings/new" >
              <button class="large" type="submit">New Sighting</button>
+          </form>
+        </div>
+
+        <div>
+          <form action="/logout" >
+             <button class="large" type="submit">Logout <%=Helpers.current_user(session).username%></button>
           </form>
         </div>
 
