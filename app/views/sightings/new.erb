@@ -1,10 +1,9 @@
 <div class="section new">
   <div>
-<h1>Create a New Bird Sighting</h1>
+<h1>1. Identify your Bird</h1>
 <% if Helpers.logged_in?(session) %>
 
-<p><em>Use the Audubon Bird Guide to identify your bird, then record your sighting below.</em></p>
-<p><em>After dentifying your bird in the bird guide, copy the URL and paste it in the form below.</em></p>
+<p><em>Use the Audubon Bird Guide to identify your bird, then record your sighting.</em></p>
 
 <form action="https://www.audubon.org/bird-guide" target="_blank" >
    <button type="submit">Go to Audubon Bird Guide</button>
@@ -12,6 +11,9 @@
 </div>
 
 <div>
+  <h1>2. Create a New Bird Sighting</h1>
+  <p><em>After identifying your bird in the bird guide, copy the URL and paste it in the form below.</em></p>
+
 <form action='/sightings' method="post">
   <p><label for="audubon_url">Audubon URL: </label>
     <input type="string" name="audubon_url" required></p>

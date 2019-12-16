@@ -8,8 +8,10 @@ div.section {
 }
 
 div .new {
+  display: grid;
   grid-template-columns: 1fr 1fr;
-
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: minmax(100px, auto);
 }
 
 .card {
