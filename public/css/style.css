@@ -14,12 +14,11 @@ div.section {
   grid-auto-rows: minmax(100px, auto);
 }
 
-.card {
-  border-width: 1px;
-  border-color: black;
+div.card {
+  border: 1px solid black;
   padding: 1em;
 }
 
-.card > button {
-  /*align-items: flex-end;*/
+.card button {
+  position: relative;
 }
