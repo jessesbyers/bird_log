@@ -76,22 +76,22 @@
       </div>
 
       <div>
+        <form action="/sightings/new" >
+           <button class="large" type="submit">New Sighting</button>
+        </form>
+      </div>
+
+      <div>
+        <form action="/sightings" >
+           <button class="large" type="submit">All Sightings</button>
+        </form>
+      </div>
+
+      <div>
         <form action="/birds" >
            <button class="large" type="submit">Birds</button>
         </form>
       </div>
-
-        <div>
-          <form action="/sightings" >
-             <button class="large" type="submit">All Sightings</button>
-          </form>
-        </div>
-
-        <div>
-          <form action="/sightings/new" >
-             <button class="large" type="submit">New Sighting</button>
-          </form>
-        </div>
 
         <div>
           <form action="/logout" >
@@ -100,7 +100,17 @@
         </div>
 
         <% else %>
-          <div class="center">
+        <div>
+        </div>
+
+        <div>
+        </div>
+
+        <div>
+        </div>
+
+
+          <div>
             <form action="/signup" >
                <button class="large" type="submit">New Users: Create an Account</button>
             </form>
@@ -119,7 +129,7 @@
   <%= yield %>
 
   <footer>
-    <p>add footer content here</p>
+    <p>2019 - Jesse Byers - <a href="https://github.com/jessesbyers/bird_log">Visit Project on GitHub</a></p>
   </footer>
 
 </body>
