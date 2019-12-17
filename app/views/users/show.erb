@@ -26,7 +26,7 @@
     <div class="card">
       <h2><%=sighting.date%></h2>
       <p><%=sighting.bird.common_name%></p>
-      <form action="/birds/<%=sighting.bird.id%>" >
+        <form action="/sightings/<%=sighting.id%>">
          <button type="submit">View Sighting</button>
       </form>
 </div>

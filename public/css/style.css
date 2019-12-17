@@ -76,6 +76,11 @@ div.card button, input#Delete, input {
   border-radius: 12px;
 }
 
+div.bigtitle h1 {
+  font-size: 40px;
+  color: #FBEEC1;
+}
+
 button {
   width: auto;
   padding: 1em;
