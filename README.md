@@ -1,8 +1,6 @@
 # BirdLog
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/bird_log`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to Bird Log! Use this app to create a personal account and record your bird sightings. Then view your personalized bird guide, and see sightings of your birds by other users.
 
 ## Installation
 
@@ -22,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Create an account on the home page, then log in to create your first sighting.
 
 ## Development
 
