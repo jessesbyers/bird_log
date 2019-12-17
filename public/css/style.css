@@ -19,7 +19,7 @@ div.section {
 
 div.show {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 2fr;
   border-radius: 12px;
   grid-gap: 1em;
   padding: 1em;
@@ -29,6 +29,7 @@ div.card {
   padding: 1em;
   border-radius: 12px;
   background-color: white;
+  text-align: center;
 }
 
 div.birdshow div.section {
@@ -43,7 +44,7 @@ div.birdshow div.section {
 
 div.birdshow div.details {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 1em;
   margin: 1em;
   background-color: #FBEEC1;
@@ -61,17 +62,10 @@ div.home div.section {
   border-radius: 12px;
 }
 
-div.show div.card img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  height: 300px;
-  border-radius: 12px;
-}
-
 div.card.title {
   background-color: inherit;
   border-radius: 12px;
+  text-align: center;
 }
 
 div.card button, input#Delete {
@@ -90,6 +84,7 @@ button {
   background-color: #FBEEC1;}
 
 img {
-  height: 100px;
+  width: 65%;
+  height: auto;
   border-radius: 12px;
 }

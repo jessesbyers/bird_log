@@ -1,8 +1,9 @@
-<h1>Sighting Details</h1>
 
   <% if Helpers.logged_in?(session) && @sighting.user_id == Helpers.current_user(session).id%>
 <div class="show">
   <div class="card">
+    <h1>Sighting Details</h1>
+
   <p><strong>Sighting Number: </strong><%=@sighting.id%></p>
   <p><strong>Date: </strong><%=@sighting.date%></p>
   <p><strong>Location: </strong><%=@sighting.location%></p>
@@ -19,13 +20,10 @@
 </div>
 
 <div class="card">
-  <img src="<%=@sighting.bird.image%>" alt="<%=@sighting.bird.common_name%>">
-
-</div>
-
-<div class="card">
   <h1><%=@sighting.bird.common_name%></h1>
     <p><em><%=@sighting.bird.scientific_name%></em></p>
+    <img src="<%=@sighting.bird.image%>" alt="<%=@sighting.bird.common_name%>">
+
 
     <!-- <p><strong>Family: </strong><%=@sighting.bird.family%></p>
     <p><strong>Description: </strong><%=@sighting.bird.description%></p>
