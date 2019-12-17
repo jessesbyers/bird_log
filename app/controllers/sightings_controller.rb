@@ -18,7 +18,7 @@ class SightingsController < ApplicationController
   end
 
   post '/sightings' do
-    if params[:audubon_url] != ""
+    if params[:audubon_url] != "" && params[:audubon_url].include?("https://www.audubon.org/field-guide/bird/")
       @sighting = Sighting.new(:audubon_url => params[:audubon_url], :date => params[:date], :location => params[:location], :notes => params[:notes], :user_id => Helpers.current_user(session).id)
       bird = Bird.find_or_create_by(Bird.scrape_attributes(@sighting.audubon_url))
       @sighting.bird_id = bird.id
