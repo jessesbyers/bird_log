@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 
   get "/users" do
     if Helpers.logged_in?(session)
-      @user = User.find_by(params[:id])
+      @user = Helpers.current_user(session)
       erb :'users/show'
     else
       redirect '/'
