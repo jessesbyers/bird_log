@@ -1,34 +1,48 @@
 <h1>Edit <%=@sighting.bird.common_name%> Sighting</h1>
+
 <% if Helpers.logged_in?(session) && @sighting.user_id == Helpers.current_user(session).id%>
 
-<form method="post" action="/sightings/<%= @sighting.id %>">
-  <input id="hidden" type="hidden" name="_method" value="patch">
-  <!-- <p><label for="audubon_url">Audubon URL: </label>
-    <input type="string" name="audubon_url" value="<%= @sighting.audubon_url %>" required></p> -->
-  <p><label for="date">Date: </label>
-    <input type="date" name="date" value="<%= @sighting.date %>" required></p>
-  <p><label for="location">Location: </label>
-    <input type="string" name="location" value="<%= @sighting.location %>" required></p>
-  <p><label for="notes">Notes: </label>
-    <input type="text" name="notes" value="<%= @sighting.notes %>" required></p>
-  <input id="submit" type="submit" value="Edit Sighting">
-</form>
+    <div class="section">
 
-<form action="/sightings/<%=@sighting.id%>/delete" method="post">
- <input id="hidden" type="hidden" name="_method" value="delete">
- <input id="Delete" type="submit" value="Delete Sighting">
-</form>
+      <div>
+      </div>
+
+      <div class="card">
+        <form method="post" action="/sightings/<%= @sighting.id %>">
+          <input id="hidden" type="hidden" name="_method" value="patch">
+          <p><label for="date">Date: </label>
+            <input type="date" name="date" value="<%= @sighting.date %>" required></p>
+          <p><label for="location">Location: </label>
+            <input type="string" name="location" value="<%= @sighting.location %>" required></p>
+          <p><label for="notes">Notes: </label>
+            <input type="text" name="notes" value="<%= @sighting.notes %>" required></p>
+          <input id="submit" type="submit" value="Edit Sighting">
+        </form>
+      </div>
+
+      <div class="card">
+        <form action="/sightings/<%=@sighting.id%>/delete" method="post">
+          <input id="hidden" type="hidden" name="_method" value="delete">
+          <input id="Delete" type="submit" value="Delete Sighting">
+        </form>
+      </div>
+
+      <div>
+      </div>
+
+    </div>
 
 <% else %>
-  <h3> You Must Be Logged in to Edit Sightings </h3>
-  <h3> You May Only Edit Your Own Sightings </h3>
-  <br>
-  <form action="/sightings" >
-     <button type="submit">Return to Sightings</button>
-  </form>
+    <h3> You Must Be Logged in to Edit Sightings </h3>
+    <h3> You May Only Edit Your Own Sightings </h3>
+    <br>
 
-  <form action="/login" >
-     <button type="submit">Log In</button>
-  </form>
+    <form action="/sightings" >
+       <button type="submit">Return to Sightings</button>
+    </form>
+
+    <form action="/login" >
+       <button type="submit">Log In</button>
+    </form>
 
 <% end %>

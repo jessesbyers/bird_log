@@ -1,39 +1,38 @@
   <% if Helpers.logged_in?(session) %>
-  <%@users.each do |user|%>
+    <%@users.each do |user|%>
 
-  <div class="section">
-  <div class="card title">
-    <h2><%=user.username.capitalize%>'s Bird Sightings</h2>
-  </div>
-        <%user.sightings.each do |sighting|%>
-        <div class="card">
+        <div class="section">
 
-          <h2><%=sighting.bird.common_name%></h2>
-          <p><em><%=sighting.bird.scientific_name%></em></p>
+            <div class="card title">
+              <h2><%=user.username.capitalize%>'s Bird Sightings</h2>
+            </div>
 
-          <%if sighting.user_id == Helpers.current_user(session).id%>
-          <a href="/sightings/<%=sighting.id%>"><img src="<%=sighting.bird.image%>" alt="<%=sighting.bird.common_name%>"></a>
+            <%user.sightings.each do |sighting|%>
 
-          <form action="/sightings/<%=sighting.id%>" >
-             <button type="submit">View Sighting Details</button>
-          </form>
-          <% else %>
-          <img src="<%=sighting.bird.image%>" alt="<%=sighting.bird.common_name%>">
+                <div class="card">
+                  <h2><%=sighting.bird.common_name%></h2>
+                  <p><em><%=sighting.bird.scientific_name%></em></p>
+
+                  <%if sighting.user_id == Helpers.current_user(session).id%>
+                    <a href="/sightings/<%=sighting.id%>"><img src="<%=sighting.bird.image%>" alt="<%=sighting.bird.common_name%>"></a>
+
+                    <form action="/sightings/<%=sighting.id%>" >
+                       <button type="submit">View Sighting Details</button>
+                    </form>
+                  <% else %>
+                    <img src="<%=sighting.bird.image%>" alt="<%=sighting.bird.common_name%>">
+                  <%end%>
+                </div>
+
             <%end%>
-          </div>
-
-        <%end%>
-    </div>
-
+      </div>
   <%end%>
 
+<% else %>
+  <h3> You Must Be Logged in to Edit Sightings </h3>
+  <h3> You May Only Edit Your Own Sightings </h3>
 
-
-  <% else %>
-      <h3> You Must Be Logged in to Edit Sightings </h3>
-      <h3> You May Only Edit Your Own Sightings </h3>
-
-      <form action="/login" >
-         <button type="submit">Log In</button>
-      </form>
-  <% end %>
+  <form action="/login" >
+     <button type="submit">Log In</button>
+  </form>
+<% end %>
