@@ -21,11 +21,16 @@ class SightingsController < ApplicationController
     if params[:audubon_url] != "" && params[:audubon_url].include?("https://www.audubon.org/field-guide/bird/")
       @sighting = Sighting.new(:audubon_url => params[:audubon_url], :date => params[:date], :location => params[:location], :notes => params[:notes], :user_id => Helpers.current_user(session).id)
       bird_attributes = Bird.scrape_attributes(@sighting.audubon_url)
-      bird = Bird.find_or_create_by(bird_attributes)
-      @sighting.bird_id = bird.id
-      @sighting.save
 
-      redirect to "/sightings/#{@sighting.id}"
+      if bird_attributes == {}
+        redirect to "/sightings/new"
+      else
+        bird = Bird.find_or_create_by(bird_attributes)
+        @sighting.bird_id = bird.id
+        @sighting.save
+
+        redirect to "/sightings/#{@sighting.id}"
+      end
     else
       redirect to "/sightings/new"
     end
