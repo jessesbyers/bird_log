@@ -22,7 +22,7 @@ class SightingsController < ApplicationController
       @sighting = Sighting.new(:audubon_url => params[:audubon_url], :date => params[:date], :location => params[:location], :notes => params[:notes], :user_id => Helpers.current_user(session).id)
       bird_attributes = Bird.scrape_attributes(@sighting.audubon_url)
 
-      if bird_attributes == {}
+      if bird_attributes == nil
         redirect to "/sightings/new"
       else
         bird = Bird.find_or_create_by(bird_attributes)
