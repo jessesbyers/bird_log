@@ -1,44 +1,45 @@
 <% if Helpers.logged_in?(session) %>
-<div class="bigtitle">
-<h1>Welcome to Bird Log, <%=Helpers.current_user(session).username%>!</h1>
-</div>
+
+  <div class="bigtitle">
+  <h1>Welcome to Bird Log, <%=Helpers.current_user(session).username%>!</h1>
+  </div>
 
 <%else%>
-<div class="bigtitle">
-<h1>Welcome to Bird Log!</h1>
-</div>
+  <div class="bigtitle">
+  <h1>Welcome to Bird Log!</h1>
+  </div>
 
 
-<div class="section">
+  <div class="section">
 
-<div class="card">
-  <form action="/signup" >
-     <button type="submit">New Users: Create an Account</button>
-  </form>
+    <div class="card">
+      <form action="/signup" >
+         <button type="submit">New Users: Create an Account</button>
+      </form>
 
-  <form action="/login" >
-     <button type="submit">Current Users: Log In</button>
-  </form>
-</div>
+      <form action="/login" >
+         <button type="submit">Current Users: Log In</button>
+      </form>
+    </div>
 
 
-<div class="card">
-  <h2>IDENTIFY</h2>
-  <h3>Use the Audubon Online Bird Guide to identify each bird you see.</h3>
-</div>
+    <div class="card">
+      <h2>IDENTIFY</h2>
+      <h3>Use the Audubon Online Bird Guide to identify each bird you see.</h3>
+    </div>
 
-<div class="card">
-  <h2>RECORD</h2>
-  <h3>Create and update your sightings of each bird.</h3>
-  <h3>Look for patterns and trends over time.</h3>
-</div>
+    <div class="card">
+      <h2>RECORD</h2>
+      <h3>Create and update your sightings of each bird.</h3>
+      <h3>Look for patterns and trends over time.</h3>
+    </div>
 
-<div class="card">
-  <h2>EXPLORE</h2>
-  <h3>View detailed information on each Bird Species.</h3>
-  <h3>See what other users are seeing.</h3>
-</div>
+    <div class="card">
+      <h2>EXPLORE</h2>
+      <h3>View detailed information on each Bird Species.</h3>
+      <h3>See what other users are seeing.</h3>
+    </div>
 
-</div>
+  </div>
 
 <%end%>

@@ -1,9 +1,11 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <title>Bird Log</title>
   <link rel="stylesheet" type="text/css" href="/css/style.css">
   <link href="https://fonts.googleapis.com/css?family=EB+Garamond&display=swap" rel="stylesheet">
+
   <style>
     header .wrapper {
       display: grid;
@@ -16,10 +18,6 @@
       padding-right: 1em;
       margin-left: 1em;
       margin-right: 1em;
-    }
-
-    div {
-      text-align: center;
     }
 
     header h1 {
@@ -38,6 +36,7 @@
     }
 
     div {
+      text-align: center;
       border-radius: 12px;
     }
 
@@ -62,35 +61,34 @@
 
 <body>
 
-<header>
-  <div class="wrapper">
-    <h1>Bird Log</h1>
+  <header>
+    <div class="wrapper">
+      <h1>Bird Log</h1>
 
       <% if Helpers.logged_in?(session) %>
+        <div>
+          <form action="/users" >
+             <button class="large" type="submit">Home</button>
+          </form>
+        </div>
 
-      <div>
-        <form action="/users" >
-           <button class="large" type="submit">Home</button>
-        </form>
-      </div>
+        <div>
+          <form action="/sightings/new" >
+             <button class="large" type="submit">New Sighting</button>
+          </form>
+        </div>
 
-      <div>
-        <form action="/sightings/new" >
-           <button class="large" type="submit">New Sighting</button>
-        </form>
-      </div>
+        <div>
+          <form action="/sightings" >
+             <button class="large" type="submit">All Sightings</button>
+          </form>
+        </div>
 
-      <div>
-        <form action="/sightings" >
-           <button class="large" type="submit">All Sightings</button>
-        </form>
-      </div>
-
-      <div>
-        <form action="/birds" >
-           <button class="large" type="submit">All Birds</button>
-        </form>
-      </div>
+        <div>
+          <form action="/birds" >
+             <button class="large" type="submit">All Birds</button>
+          </form>
+        </div>
 
         <div>
           <form action="/logout" >
@@ -98,31 +96,30 @@
           </form>
         </div>
 
-        <% else %>
+      <% else %>
         <div>
         </div>
 
-          <div>
-            <form action="/signup" >
-               <button class="large" type="submit">New Users: Create an Account</button>
-            </form>
-          </div>
+        <div>
+          <form action="/signup" >
+             <button class="large" type="submit">New Users: Create an Account</button>
+          </form>
+        </div>
 
-          <div>
-          </div>
+        <div>
+        </div>
 
-          <div>
-            <form action="/login" >
-               <button class= "large" type="submit">Current Users: Log In</button>
-            </form>
-          </div>
+        <div>
+          <form action="/login" >
+             <button class= "large" type="submit">Current Users: Log In</button>
+          </form>
+        </div>
 
-          <div>
-          </div>
+        <div>
+        </div>
 
       <% end %>
     </div>
-
   </header>
 
   <%= yield %>
