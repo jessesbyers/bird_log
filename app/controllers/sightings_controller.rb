@@ -5,7 +5,7 @@ class SightingsController < ApplicationController
     if Helpers.logged_in?(session)
       erb :'sightings/index'
     else
-      redirect '/login'
+      redirect '/'
     end
   end
 
@@ -13,7 +13,7 @@ class SightingsController < ApplicationController
     if Helpers.logged_in?(session)
       erb :'sightings/new'
     else
-      redirect to '/login'
+      redirect to '/'
     end
   end
 
@@ -45,26 +45,21 @@ class SightingsController < ApplicationController
        @sighting = Sighting.find_by_id(params[:id])
        erb :'sightings/edit'
      else
-       redirect to '/login'
+       redirect to '/'
      end
    end
 
   patch '/sightings/:id' do
     if Helpers.logged_in?(session)
       @sighting = Sighting.find_by_id(params[:id])
-      if params[:audubon_url] == ""
-        redirect "/sightings/#{@sighting.id}/edit"
-      else
-        @sighting.audubon_url = params[:audubon_url]
-        @sighting.date = params[:date]
-        @sighting.location = params[:location]
-        @sighting.notes = params[:notes]
-        @sighting.user_id = Helpers.current_user(session).id
-        @sighting.save
-        redirect to "/sightings/#{@sighting.id}"
-      end
+      @sighting.date = params[:date]
+      @sighting.location = params[:location]
+      @sighting.notes = params[:notes]
+      @sighting.user_id = Helpers.current_user(session).id
+      @sighting.save
+      redirect to "/sightings/#{@sighting.id}"
     else
-      redirect to '/login'
+      redirect to '/'
     end
   end
 
@@ -81,7 +76,7 @@ class SightingsController < ApplicationController
         redirect to '/users'
       end
     else
-      redirect to '/login'
+      redirect to '/'
     end
   end
 end
