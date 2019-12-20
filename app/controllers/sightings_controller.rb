@@ -46,8 +46,8 @@ class SightingsController < ApplicationController
   end
 
   get '/sightings/:id/edit' do
-    if Helpers.logged_in?(session)
-       @sighting = Sighting.find_by_id(params[:id])
+    @sighting = Sighting.find_by_id(params[:id])
+    if Helpers.logged_in?(session) && @sighting.user_id == Helpers.current_user(session).id
        erb :'sightings/edit'
      else
        redirect to '/'
@@ -55,8 +55,8 @@ class SightingsController < ApplicationController
    end
 
   patch '/sightings/:id' do
-    if Helpers.logged_in?(session)
-      @sighting = Sighting.find_by_id(params[:id])
+    @sighting = Sighting.find_by_id(params[:id])
+    if Helpers.logged_in?(session) && @sighting.user_id == Helpers.current_user(session).id
       @sighting.date = params[:date]
       @sighting.location = params[:location]
       @sighting.notes = params[:notes]
@@ -69,19 +69,17 @@ class SightingsController < ApplicationController
   end
 
   delete '/sightings/:id/delete' do
-    if Helpers.logged_in?(session)
-      @sighting = Sighting.find_by_id(params[:id])
-      if @sighting.user_id == Helpers.current_user(session).id
+    @sighting = Sighting.find_by_id(params[:id])
+    if Helpers.logged_in?(session) && @sighting.user_id == Helpers.current_user(session).id
         if @sighting.bird.sightings.count == 1
           @sighting.delete
           @sighting.bird.delete
         else
           @sighting.delete
         end
-        redirect to '/users'
-      end
+      redirect to '/users'
     else
-      redirect to '/'
+      redirect to '/sightings'
     end
   end
 end
