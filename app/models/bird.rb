@@ -4,7 +4,11 @@ class Bird < ActiveRecord::Base
 
 
   def self.scrape_attributes(url)
+    begin
       doc = Nokogiri::HTML(open(url))
+    rescue OpenURI::HTTPError => e
+      doc = Nokogiri::HTML(open("https://www.audubon.org/field-guide/bird/american-flamingo"))
+    end
 
       if doc.css("table.collapse tr td").children[1] == nil || doc.css("div h1") == "Sorry, We Couldn't Find That Page"
         attributes = nil
