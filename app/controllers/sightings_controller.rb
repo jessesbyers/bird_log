@@ -8,11 +8,23 @@ class SightingsController < ApplicationController
 
   get '/sightings/new' do
     redirect_not_logged_in
+    @birds = Bird.all
     erb :'sightings/new'
   end
 
   post '/sightings' do
-    if params[:audubon_url] != "" && params[:audubon_url].include?("https://www.audubon.org/field-guide/bird/")
+    # if existing bird is chosen
+    if params.has_key?("bird")
+      params[:audubon_url] = ""
+      @sighting = Sighting.new(:date => params[:date], :location => params[:location], :notes => params[:notes], :user_id => Helpers.current_user(session).id)
+      existing_bird = Bird.find_by(:id => params[:bird][:bird_id])
+      @sighting.bird = existing_bird
+      @sighting.audubon_url = existing_bird.sightings.first.audubon_url
+      @sighting.save
+      redirect to "/sightings/#{@sighting.id}"
+
+    # if bird is chosen by url
+    elsif params[:audubon_url] != "" && params[:audubon_url].include?("https://www.audubon.org/field-guide/bird/")
       @sighting = Sighting.new(:audubon_url => params[:audubon_url], :date => params[:date], :location => params[:location], :notes => params[:notes], :user_id => Helpers.current_user(session).id)
       bird_attributes = Bird.scrape_attributes(@sighting.audubon_url)
 

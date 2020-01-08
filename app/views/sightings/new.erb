@@ -12,12 +12,17 @@
   </div>
 
   <div class="card">
-    <h1>2. Create a New Bird Sighting</h1>
-    <p><em>After identifying your bird in the bird guide, copy the URL and paste it in the form below.</em></p>
+    <h1>2. Create a New Bird Sighting OR Choose an Existing Bird</h1>
+    <p><em>After identifying your bird in the bird guide, click the box for the bird you identified, OR copy the URL and paste it in the form below.</em></p>
 
     <form action='/sightings' method="post">
-      <p><label for="audubon_url">Audubon URL: </label>
-        <input type="string" name="audubon_url" required></p>
+
+    <% @birds.each do |bird| %>
+      <input type="radio" name="bird[bird_id]" value="<%= bird.id %>"><%= bird.common_name %></input>
+    <% end %>
+
+      <p><label for="audubon_url">Audubon URL (optional): </label>
+        <input type="string" name="audubon_url" ></p>
       <p><label for="date">Date: </label>
         <input type="date" name="date" required></p>
       <p><label for="location">Location: </label>
