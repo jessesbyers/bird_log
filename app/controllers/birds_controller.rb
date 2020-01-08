@@ -2,19 +2,13 @@ class BirdsController < ApplicationController
 
   get '/birds' do
     @birds = Bird.all
-    if Helpers.logged_in?(session)
-      erb :'birds/index'
-    else
-      redirect '/'
-    end
+    redirect_not_logged_in
+    erb :'birds/index'
   end
 
   get '/birds/:id' do
-    if Helpers.logged_in?(session)
-       @bird = Bird.find(params[:id])
-       erb:'birds/show'
-     else
-       redirect to '/'
-     end
+    @bird = Bird.find(params[:id])
+    redirect_not_logged_in
+    erb:'birds/show'
   end
 end

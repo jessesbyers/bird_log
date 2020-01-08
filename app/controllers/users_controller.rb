@@ -1,11 +1,8 @@
 class UsersController < ApplicationController
 
   get '/signup' do
-    if Helpers.logged_in?(session)
-      redirect "/users"
-    else
-      erb :'users/signup'
-    end
+    redirect_already_logged_in
+    erb :'users/signup'
   end
 
   post '/signup' do
@@ -18,11 +15,8 @@ class UsersController < ApplicationController
   end
 
   get '/login' do
-    if Helpers.logged_in?(session)
-      redirect '/users'
-    else
-      erb :'users/login'
-    end
+    redirect_already_logged_in
+    erb :'users/login'
   end
 
   post '/login' do
@@ -36,21 +30,15 @@ class UsersController < ApplicationController
   end
 
   get "/users" do
-    if Helpers.logged_in?(session)
-      @user = Helpers.current_user(session)
-      erb :'users/show'
-    else
-      redirect '/'
-    end
+    redirect_not_logged_in
+    @user = Helpers.current_user(session)
+    erb :'users/show'
   end
 
   get '/logout' do
-    if Helpers.logged_in?(session)
-      session.clear
-      redirect '/'
-    else
-      redirect '/'
-    end
+    redirect_not_logged_in
+    session.clear
+    redirect '/'
   end
 
   get '/failure' do

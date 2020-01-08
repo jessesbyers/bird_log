@@ -2,19 +2,13 @@ class SightingsController < ApplicationController
 
   get '/sightings' do
     @users = User.all
-    if Helpers.logged_in?(session)
-      erb :'sightings/index'
-    else
-      redirect '/'
-    end
+    redirect_not_logged_in
+    erb :'sightings/index'
   end
 
   get '/sightings/new' do
-    if Helpers.logged_in?(session)
-      erb :'sightings/new'
-    else
-      redirect to '/'
-    end
+    redirect_not_logged_in
+    erb :'sightings/new'
   end
 
   post '/sightings' do
@@ -37,35 +31,28 @@ class SightingsController < ApplicationController
   end
 
   get '/sightings/:id' do
-    if Helpers.logged_in?(session)
-       @sighting = Sighting.find_by_id(params[:id])
-       erb:'sightings/show'
-     else
-       redirect to '/sightings'
-     end
+    @sighting = Sighting.find_by_id(params[:id])
+    redirect_not_logged_in
+    erb:'sightings/show'
   end
 
   get '/sightings/:id/edit' do
     @sighting = Sighting.find_by_id(params[:id])
-    if Helpers.logged_in?(session) && @sighting.user_id == Helpers.current_user(session).id
-       erb :'sightings/edit'
-     else
-       redirect to '/'
-     end
-   end
+    redirect_not_current_user
+
+    erb :'sightings/edit'
+  end
 
   patch '/sightings/:id' do
     @sighting = Sighting.find_by_id(params[:id])
-    if Helpers.logged_in?(session) && @sighting.user_id == Helpers.current_user(session).id
-      @sighting.date = params[:date]
-      @sighting.location = params[:location]
-      @sighting.notes = params[:notes]
-      @sighting.user_id = Helpers.current_user(session).id
-      @sighting.save
-      redirect to "/sightings/#{@sighting.id}"
-    else
-      redirect to '/'
-    end
+    redirect_not_current_user
+    @sighting = Sighting.find_by_id(params[:id])
+    @sighting.date = params[:date]
+    @sighting.location = params[:location]
+    @sighting.notes = params[:notes]
+    @sighting.user_id = Helpers.current_user(session).id
+    @sighting.save
+    redirect to "/sightings/#{@sighting.id}"
   end
 
   delete '/sightings/:id/delete' do
