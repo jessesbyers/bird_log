@@ -17,16 +17,20 @@ class SightingsController < ApplicationController
     # if existing bird is chosen
     if params.has_key?("bird")
       params[:audubon_url] = ""
-      @sighting = Sighting.new(:date => params[:date], :location => params[:location], :notes => params[:notes], :user_id => Helpers.current_user(session).id)
+      # @sighting = Sighting.new(:date => params[:date], :location => params[:location], :notes => params[:notes], :user_id => Helpers.current_user(session).id)
+      @sighting = Sighting.new(:date => params[:date], :notes => params[:notes], :user_id => Helpers.current_user(session).id)
+
       existing_bird = Bird.find_by(:id => params[:bird][:bird_id])
       @sighting.bird = existing_bird
       @sighting.audubon_url = existing_bird.sightings.first.audubon_url
       @sighting.save
-      redirect to "/sightings/#{@sighting.id}"
+      # redirect to "/sightings/#{@sighting.id}"
 
     # if bird is chosen by url
     elsif params[:audubon_url] != "" && params[:audubon_url].include?("https://www.audubon.org/field-guide/bird/")
-      @sighting = Sighting.new(:audubon_url => params[:audubon_url], :date => params[:date], :location => params[:location], :notes => params[:notes], :user_id => Helpers.current_user(session).id)
+      # @sighting = Sighting.new(:audubon_url => params[:audubon_url], :date => params[:date], :location => params[:location], :notes => params[:notes], :user_id => Helpers.current_user(session).id)
+      @sighting = Sighting.new(:audubon_url => params[:audubon_url], :date => params[:date], :notes => params[:notes], :user_id => Helpers.current_user(session).id)
+
       bird_attributes = Bird.scrape_attributes(@sighting.audubon_url)
 
       if bird_attributes == nil
@@ -36,10 +40,21 @@ class SightingsController < ApplicationController
         @sighting.bird_id = bird.id
         @sighting.save
 
-        redirect to "/sightings/#{@sighting.id}"
+        # redirect to "/sightings/#{@sighting.id}"
       end
     else
       redirect to "/sightings/new"
+    end
+
+    # logic for assigning location to sighting (need to remove locations from above)
+    if params.has_key?("sighting")
+      # params[:location] = ""
+      @sighting.update(:location => params[:sighting][:location])
+      redirect to "/sightings/#{@sighting.id}"
+
+    else
+      @sighting.update(:location => params[:location])
+      redirect to "/sightings/#{@sighting.id}"
     end
   end
 
