@@ -22,7 +22,7 @@ class SightingsController < ApplicationController
     # if existing bird is chosen
     if params.has_key?("bird")
       params[:audubon_url] = ""
-      @sighting = Sighting.new(:date => params[:date], :notes => params[:notes], :user_id => Helpers.current_user(session).id)
+      @sighting = Sighting.new(:date => params[:date], :notes => params[:notes], :user_id => current_user(session).id)
       existing_bird = Bird.find_by(:id => params[:bird][:bird_id])
       @sighting.bird = existing_bird
       @sighting.audubon_url = existing_bird.sightings.first.audubon_url
@@ -30,7 +30,7 @@ class SightingsController < ApplicationController
 
     # if bird is chosen by url
     elsif params[:audubon_url] != "" && params[:audubon_url].include?("https://www.audubon.org/field-guide/bird/")
-      @sighting = Sighting.new(:audubon_url => params[:audubon_url], :date => params[:date], :notes => params[:notes], :user_id => Helpers.current_user(session).id)
+      @sighting = Sighting.new(:audubon_url => params[:audubon_url], :date => params[:date], :notes => params[:notes], :user_id => current_user(session).id)
       bird_attributes = Bird.scrape_attributes(@sighting.audubon_url)
 
       if bird_attributes == nil
@@ -87,7 +87,7 @@ class SightingsController < ApplicationController
 
   delete '/sightings/:id/delete' do
     @sighting = Sighting.find_by_id(params[:id])
-    if Helpers.logged_in?(session) && @sighting.user_id == Helpers.current_user(session).id
+    if logged_in?(session) && @sighting.user_id == current_user(session).id
         if @sighting.bird.sightings.count == 1
           @sighting.delete
           @sighting.bird.delete

@@ -31,7 +31,7 @@ class UsersController < ApplicationController
 
   get "/users" do
     redirect_not_logged_in
-    @user = Helpers.current_user(session)
+    @user = current_user(session)
     erb :'users/show'
   end
 

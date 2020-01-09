@@ -65,7 +65,7 @@
     <div class="wrapper">
       <h1>Bird Log</h1>
 
-      <% if Helpers.logged_in?(session) %>
+      <% if logged_in?(session) %>
         <div>
           <form action="/users" >
              <button class="large" type="submit">Home</button>
@@ -92,7 +92,7 @@
 
         <div>
           <form action="/logout" >
-             <button class="large" type="submit">Logout <%=Helpers.current_user(session).username%></button>
+             <button class="large" type="submit">Logout <%=current_user(session).username%></button>
           </form>
         </div>
 

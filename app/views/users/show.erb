@@ -29,7 +29,7 @@
         <h1>My Sightings</h1>
     </div>
 
-    <%@user.sightings.reverse.each do |sighting|%>
+    <% @user.sightings.reverse.each do |sighting| %>
 
         <div class="card">
           <h2><%=sighting.date%></h2>

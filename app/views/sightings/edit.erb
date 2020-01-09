@@ -4,8 +4,7 @@
 
 <h1>Edit <%=@sighting.bird.common_name%> Sighting</h1>
 
-<% if Helpers.logged_in?(session) && @sighting.user_id == Helpers.current_user(session).id%>
-
+<% if logged_in?(session) && @sighting.user_id == current_user(session).id%>
 
         <form method="post" action="/sightings/<%= @sighting.id %>">
           <input id="hidden" type="hidden" name="_method" value="patch">

@@ -1,7 +1,7 @@
-<% if Helpers.logged_in?(session) %>
+<% if logged_in?(session) %>
 
   <div class="bigtitle">
-  <h1>Welcome to Bird Log, <%=Helpers.current_user(session).username%>!</h1>
+  <h1>Welcome to Bird Log, <%= current_user(session).username %>!</h1>
   </div>
 
 <%else%>
