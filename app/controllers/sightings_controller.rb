@@ -9,7 +9,7 @@ class SightingsController < ApplicationController
   get '/sightings/new' do
     redirect_not_logged_in
     @birds = Bird.all
-    @sightings = Helpers.current_user(session).sightings
+    @sightings = Sighting.all
     erb :'sightings/new'
   end
 
@@ -59,7 +59,7 @@ class SightingsController < ApplicationController
 
   get '/sightings/:id/edit' do
     @sighting = Sighting.find_by_id(params[:id])
-    @sightings = Helpers.current_user(session).sightings
+    @sightings = Sighting.all
     redirect_not_current_user
     erb :'sightings/edit'
   end

@@ -17,9 +17,9 @@ Bird.create(Bird.scrape_attributes("https://www.audubon.org/field-guide/bird/bla
 
 
 sighting_list = [
-  ["https://www.audubon.org/field-guide/bird/bald-eagle", "2017-01-11", "Back yard", "Soaring overhead", "1", "1"],
+  ["https://www.audubon.org/field-guide/bird/bald-eagle", "2017-01-11", "Bay Park", "Soaring overhead", "1", "1"],
   ["https://www.audubon.org/field-guide/bird/bald-eagle", "2017-05-18", "Front yard", "Flying south", "2", "1"],
-  ["https://www.audubon.org/field-guide/bird/bald-eagle", "2019-01-20", "Back yard", "Sitting on dead tree branch", "3", "1"],
+  ["https://www.audubon.org/field-guide/bird/bald-eagle", "2019-01-20", "Kill Kare State Park", "Sitting on dead tree branch", "3", "1"],
   ["https://www.audubon.org/field-guide/bird/black-chinned-hummingbird", "2017-08-11", "Flower garden", "sipping nectar", "4", "2"],
   ["https://www.audubon.org/field-guide/bird/black-chinned-hummingbird", "2018-01-30", "Back deck", "3 birds at feeder", "1", "2"],
   ["https://www.audubon.org/field-guide/bird/bald-eagle", "2017-05-18", "Back yard", "Sitting on dead tree branch", "2", "1"],
