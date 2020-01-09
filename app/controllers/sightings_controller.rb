@@ -9,6 +9,7 @@ class SightingsController < ApplicationController
   get '/sightings/new' do
     redirect_not_logged_in
     @birds = Bird.all
+    @sightings = Helpers.current_user(session).sightings
     erb :'sightings/new'
   end
 

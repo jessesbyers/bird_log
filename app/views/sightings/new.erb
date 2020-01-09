@@ -12,7 +12,7 @@
   </div>
 
   <div class="card">
-    <h1>2. Create a New Bird Sighting OR Choose an Existing Bird</h1>
+    <h1>2. Create a New Bird Sighting</h1>
     <p><em>After identifying your bird in the bird guide, click the box for the bird you identified, OR copy the URL and paste it in the form below.</em></p>
 
     <form action='/sightings' method="post">
@@ -23,10 +23,19 @@
 
       <p><label for="audubon_url">Audubon URL (optional): </label>
         <input type="string" name="audubon_url" ></p>
+
+        <p><em>Choose a location, or create a new location below.</em></p>
+
+        <% @sightings.each do |sighting| %>
+          <input type="radio" name="sighting[location]" value="<%= sighting.location %>"><%= sighting.location %></input>
+        <% end %>
+    
+          <p><label for="location">New Location (optional): </label>
+            <input type="string" name="location" required></p>
+
       <p><label for="date">Date: </label>
         <input type="date" name="date" required></p>
-      <p><label for="location">Location: </label>
-        <input type="string" name="location" required></p>
+
       <p><label for="notes">Notes: </label>
         <input type="string" name="notes" required></p>
       <input type="submit" name="submit" value="Create New Sighting">
