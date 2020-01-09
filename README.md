@@ -1,6 +1,6 @@
 # BirdLog
 
-Welcome to Bird Log! Use this app to create a personal account and record your bird sightings. Then view your personalized bird guide, and see sightings of your birds by other users.
+Welcome to Bird Log! Use this app to create a personal account and record your bird sightings. Then view your personalized bird guide, and see sightings of your birds by other users. All bird details are scraped from the Audubon Guide to North American Birds (https://www.audubon.org/bird-guide). 
 
 ## Installation
 
