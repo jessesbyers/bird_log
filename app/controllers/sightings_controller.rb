@@ -9,7 +9,12 @@ class SightingsController < ApplicationController
   get '/sightings/new' do
     redirect_not_logged_in
     @birds = Bird.all
+    @locations = []
     @sightings = Sighting.all
+    @sightings.each do |sighting|
+      @locations << sighting.location
+    end
+
     erb :'sightings/new'
   end
 
@@ -59,7 +64,11 @@ class SightingsController < ApplicationController
 
   get '/sightings/:id/edit' do
     @sighting = Sighting.find_by_id(params[:id])
+    @locations = []
     @sightings = Sighting.all
+    @sightings.each do |sighting|
+      @locations << sighting.location
+    end
     redirect_not_current_user
     erb :'sightings/edit'
   end

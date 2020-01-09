@@ -15,7 +15,7 @@
 
     <form action='/sightings' method="post">
 
-    <% @birds.each do |bird| %>
+    <% @birds.sort.each do |bird| %>
       <input type="radio" name="bird[bird_id]" value="<%= bird.id %>"><%= bird.common_name %></input>
     <% end %>
 
@@ -24,8 +24,8 @@
 
         <h3>Choose a location, or create a new location below.</h3>
 
-        <% @sightings.each do |sighting| %>
-          <input type="radio" name="sighting[location]" value="<%= sighting.location %>"><%= sighting.location %></input>
+        <% @locations.uniq.sort.each do |location| %>
+          <input type="radio" name="sighting[location]" value="<%= location %>"><%= location %></input>
         <% end %>
     
           <p><label for="location">New Location (optional): </label>
