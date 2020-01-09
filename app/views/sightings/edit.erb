@@ -10,11 +10,19 @@
       <div class="card">
         <form method="post" action="/sightings/<%= @sighting.id %>">
           <input id="hidden" type="hidden" name="_method" value="patch">
+
+          <p><em>Choose a location, or create a new location below.</em></p>
+
+        <% @sightings.each do |sighting| %>
+          <input type="radio" name="sighting[location]" value="<%= sighting.location %>"><%= sighting.location %></input>
+        <% end %>
+
+          <p><label for="location">Location: </label>
+          <input type="string" name="location" value="<%= @sighting.location %>"></p>
+
           <p><label for="date">Date: </label>
             <input type="date" name="date" value="<%= @sighting.date %>" required></p>
-          <p><label for="location">Location: </label>
-            <input type="string" name="location" value="<%= @sighting.location %>" required></p>
-          <p><label for="notes">Notes: </label>
+                   <p><label for="notes">Notes: </label>
             <input type="text" name="notes" value="<%= @sighting.notes %>" required></p>
           <input id="submit" type="submit" value="Edit Sighting">
         </form>
