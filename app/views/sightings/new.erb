@@ -1,19 +1,17 @@
-<div class="section new">
+<div class="center">
 
   <div class="card">
       <h1>1. Identify your Bird</h1>
       <% if Helpers.logged_in?(session) %>
 
-          <p><em>Use the Audubon Bird Guide to identify your bird, then record your sighting.</em></p>
+          <h3>Use the Audubon Bird Guide to identify your bird, then record your sighting.</h3>
 
           <form action="https://www.audubon.org/bird-guide" target="_blank" >
              <button type="submit">Go to Audubon Bird Guide</button>
           </form>
-  </div>
 
-  <div class="card">
     <h1>2. Create a New Bird Sighting</h1>
-    <p><em>After identifying your bird in the bird guide, click the box for the bird you identified, OR copy the URL and paste it in the form below.</em></p>
+    <h3>After identifying your bird in the bird guide, click the box for the bird you identified, OR copy the URL and paste it in the form below.</h3>
 
     <form action='/sightings' method="post">
 
@@ -24,7 +22,7 @@
       <p><label for="audubon_url">Audubon URL (optional): </label>
         <input type="string" name="audubon_url" ></p>
 
-        <p><em>Choose a location, or create a new location below.</em></p>
+        <h3>Choose a location, or create a new location below.</h3>
 
         <% @sightings.each do |sighting| %>
           <input type="radio" name="sighting[location]" value="<%= sighting.location %>"><%= sighting.location %></input>
