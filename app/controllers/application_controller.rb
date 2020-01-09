@@ -14,7 +14,6 @@ class ApplicationController < Sinatra::Base
   end
 
 
-
   helpers do
     def redirect_already_logged_in
       if Helpers.logged_in?(session)
