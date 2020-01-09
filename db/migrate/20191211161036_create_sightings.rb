@@ -1,4 +1,4 @@
-class CreateSightings < ActiveRecord::Migration
+class CreateSightings < ActiveRecord::Migration[4.2]
   def change
     create_table :sightings do |t|
       t.string :audubon_url

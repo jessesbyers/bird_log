@@ -1,10 +1,22 @@
-default: &default
-  adapter: 'sqlite3'
-  database: 'db/development.sqlite'
+# default: &default
+#   adapter: 'sqlite3'
+#   database: 'db/development.sqlite'
 
-development:
-  <<: *default
+# development:
+#   <<: *default
 
-test:
-  <<: *default
-  database: 'db/test.sqlite'
+# test:
+#   <<: *default
+#   database: 'db/test.sqlite'
+
+  development:
+  adapter: postgresql
+  encoding: unicode
+  database: sinatra-birdlog-development
+  pool: 2
+production:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: <%= ENV['DATABASE_HOST'] %>
+  database: production
