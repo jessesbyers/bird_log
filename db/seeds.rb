@@ -1,9 +1,8 @@
 user_list = [
-  [ "Jesse", "jesse@email.com", "jessepw"],
-  [ "Mike", "mike@email.com", "mikepw"],
-  [ "Ryan", "ryan@email.com", "ryanpw"],
-  [ "Griffin", "griffin@email.com", "griffinpw"],
-  [ "Pepper", "pepper@email.com", "pepperpw"],
+  [ "jesse", "jesse@email.com", "jessepw"],
+  [ "mike", "mike@email.com", "mikepw"],
+  [ "ryan", "ryan@email.com", "ryanpw"],
+  [ "griffin", "griffin@email.com", "griffinpw"]
 ]
 
 user_list.each do |username, email, password|
@@ -20,12 +19,11 @@ Bird.create(Bird.scrape_attributes("https://www.audubon.org/field-guide/bird/bla
 sighting_list = [
   ["https://www.audubon.org/field-guide/bird/bald-eagle", "2017-01-11", "Back yard", "Soaring overhead", "1", "1"],
   ["https://www.audubon.org/field-guide/bird/bald-eagle", "2017-05-18", "Front yard", "Flying south", "2", "1"],
-  ["https://www.audubon.org/field-guide/bird/bald-eagle", "2019-01-20", "Bay Park", "Sitting on dead tree branch", "3", "1"],
-  ["https://www.audubon.org/field-guide/bird/black-chinned-hummingbird", "2017-08-11", "Front garden", "sipping nectar", "4", "2"],
-  ["https://www.audubon.org/field-guide/bird/black-chinned-hummingbird", "2017-05-04", "Day Lily patch", "2 birds observed feeding", "5", "2"],
+  ["https://www.audubon.org/field-guide/bird/bald-eagle", "2019-01-20", "Back yard", "Sitting on dead tree branch", "3", "1"],
+  ["https://www.audubon.org/field-guide/bird/black-chinned-hummingbird", "2017-08-11", "Flower garden", "sipping nectar", "4", "2"],
   ["https://www.audubon.org/field-guide/bird/black-chinned-hummingbird", "2018-01-30", "Back deck", "3 birds at feeder", "1", "2"],
-  ["https://www.audubon.org/field-guide/bird/bald-eagle", "2017-05-18", "Kamp Kill Kare", "Sitting on dead tree branch", "2", "1"],
-  ["https://www.audubon.org/field-guide/bird/black-chinned-hummingbird", "2019-04-18", "Front porch", "At hummingbird feeder", "1", "2"]
+  ["https://www.audubon.org/field-guide/bird/bald-eagle", "2017-05-18", "Back yard", "Sitting on dead tree branch", "2", "1"],
+  ["https://www.audubon.org/field-guide/bird/black-chinned-hummingbird", "2019-04-18", "Vegetable garden", "Hovering at hummingbird feeder", "1", "2"]
 ]
 
 sighting_list.each do |audubon_url, date, location, notes, user_id, bird_id|
