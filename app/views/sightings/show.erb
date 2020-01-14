@@ -11,7 +11,7 @@
       <p><strong>Notes: </strong><%=@sighting.notes%></p>
 
       <form action="/sightings/<%=@sighting.id%>/edit" >
-         <button type="submit">Edit Sighting</button>
+         <button type="submit" id="submit" >Edit Sighting</button>
       </form>
 
       <form action="/sightings/<%=@sighting.id%>/delete" method="post">

@@ -67,9 +67,9 @@ div.card.title {
   text-align: center;
 }
 
-div.card button, input#Delete, input {
+input#Delete, input#submit, button#submit {
   background-color: #FBEEC1;
-  width: auto;
+  width: 75%;
   padding: 1em;
   margin: 1em;
   border-radius: 12px;

@@ -7,7 +7,7 @@
           <h3>Use the Audubon Bird Guide to identify your bird, then record your sighting.</h3>
 
           <form action="https://www.audubon.org/bird-guide" target="_blank" >
-             <button type="submit">Go to Audubon Bird Guide</button>
+             <button type="submit" id="submit" >Go to Audubon Bird Guide</button>
           </form>
 
     <h1>2. Create a New Bird Sighting</h1>
@@ -20,7 +20,7 @@
     <% end %>
 
       <p><label for="audubon_url">Audubon URL (optional): </label>
-        <input type="string" name="audubon_url" ></p>
+        <input type="textarea" name="audubon_url" ></p>
 
         <h3>Choose a location, or create a new location below.</h3>
 
@@ -29,14 +29,14 @@
         <% end %>
     
           <p><label for="location">New Location (optional): </label>
-            <input type="string" name="location" ></p>
+            <input type="textarea" name="location" ></p>
 
       <p><label for="date">Date: </label>
         <input type="date" name="date" required></p>
 
       <p><label for="notes">Notes: </label>
-        <input type="string" name="notes" required></p>
-      <input type="submit" name="submit" value="Create New Sighting">
+        <input type="textarea" name="notes" required></p>
+      <input type="submit" id="submit" name="submit" value="Create New Sighting">
     </form>
   </div>
 
