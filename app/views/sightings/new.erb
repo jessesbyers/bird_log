@@ -15,7 +15,7 @@
 
     <form action='/sightings' method="post">
 
-    <% @birds.sort.each do |bird| %>
+    <% @birds.sort_by(&:common_name).each do |bird| %>
       <input type="radio" name="bird[bird_id]" value="<%= bird.id %>"><%= bird.common_name %></input>
     <% end %>
 
