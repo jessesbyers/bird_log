@@ -41,28 +41,14 @@ html {
     width: 100%;
     text-align: center;
     min-height: auto;
-    background-image: url(http://lorempixel.com/1600/700/sports);
-    /*background-image: url(http://placehold.it/1600x700);*/
     background-size: cover;
     color: white;
     font-size: 1em;
     padding: 3em;
 }
 
-#about {
-    background-image: url(http://lorempixel.com/1600/700/cats);
-    /*background-image: url(http://placehold.it/1600x700);*/
-    background-size: cover;
-}
-
-#contact {
-    background-image: url(http://lorempixel.com/1600/700/city);
-    /*background-image: url(http://placehold.it/1600x700);*/
-    background-size: cover;
-}
-
-.footerA {
-    height: 200px;
+.footer {
+    height: auto;
     padding: 20px;
     margin-top: 40px;
 }

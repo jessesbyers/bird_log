@@ -14,13 +14,13 @@
 
   <body>
     <nav id='mainNav' class='navbar navbar-full  navbar-dark bg-faded navbar-fixed-top'>
-    <h1>Bird Log</h1>
+    <h1 class="float-xs-right">Bird Log</h1>
 
-        <button class='navbar-toggler hidden-sm-up light float-xs-right' type='button' data-toggle='collapse' data-target='#minimenu'></button>
+        <button class='navbar-toggler hidden-sm-up light float-xs-top' type='button' data-toggle='collapse' data-target='#minimenu'></button>
 
           <% if logged_in?(session) %>
             <div id='minimenu' class='collapse navbar-toggleable-xs'>
-              <ul class='nav navbar-nav'>
+              <ul class='nav navbar-nav float-right'>
                 <li class='nav-item'><a class='nav-link' href="/users">Home</a></li>
                 <li class='nav-item'><a class='nav-link' href="/sightings/new">New Sighting</a></li>
                 <li class='nav-item'><a class='nav-link' href="/birds">Birds</a></li>
@@ -30,7 +30,7 @@
 
           <% else %>
             <div id='minimenu' class='collapse navbar-toggleable-xs'>
-              <ul class='nav navbar-nav'>
+              <ul class='nav navbar-nav float-right'>
                 <li class='nav-item'><a class='nav-link' href="/signup">Sign Up</a></li>
                 <li class='nav-item'><a class='nav-link' href="/login">Log In</a></li>
               </ul>
@@ -43,7 +43,7 @@
 
     <%= yield %>
 
-    <footer class='text-xs-center footerA bg-inverse text-white'>2019 - Jesse Byers - <a href="https://github.com/jessesbyers/bird_log">Visit Project on GitHub</a></footer>
+    <footer class='text-xs-center footer bg-inverse text-white navbar-fixed-bottom'>2019 - Jesse Byers - <a href="https://github.com/jessesbyers/bird_log">Visit Project on GitHub</a></footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
