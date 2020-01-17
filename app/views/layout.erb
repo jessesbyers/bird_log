@@ -1,81 +1,90 @@
 <!doctype html>
-<html lang="en">
+  <html lang="en">
 
-<head>
-  <title>Bird Log</title>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous"> </head>
 
-  <style>
-  </style>
-</head>
+    <title>Bird Log</title>
 
-<body>
+    <style>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+    </style>
+  </head>
 
-  <header>
-    <div class="">
-      <h1>Bird Log</h1>
+  <body>
 
-      <% if logged_in?(session) %>
-        <div>
-          <form action="/users" >
-             <button class="" type="submit">Home</button>
-          </form>
-        </div>
+    <header>
+      <div class="">
+        <h1>Bird Log</h1>
 
-        <div>
-          <form action="/sightings/new" >
-             <button class="" type="submit">New Sighting</button>
-          </form>
-        </div>
+        <% if logged_in?(session) %>
+          <div>
+            <form action="/users" >
+              <button class="" type="submit">Home</button>
+            </form>
+          </div>
 
-        <div>
-          <form action="/sightings" >
-             <button class="" type="submit">All Sightings</button>
-          </form>
-        </div>
+          <div>
+            <form action="/sightings/new" >
+              <button class="" type="submit">New Sighting</button>
+            </form>
+          </div>
 
-        <div>
-          <form action="/birds" >
-             <button class="" type="submit">All Birds</button>
-          </form>
-        </div>
+          <div>
+            <form action="/sightings" >
+              <button class="" type="submit">All Sightings</button>
+            </form>
+          </div>
 
-        <div>
-          <form action="/logout" >
-             <button class="" type="submit">Logout <%=current_user(session).username%></button>
-          </form>
-        </div>
+          <div>
+            <form action="/birds" >
+              <button class="" type="submit">All Birds</button>
+            </form>
+          </div>
 
-      <% else %>
-        <div>
-        </div>
+          <div>
+            <form action="/logout" >
+              <button class="" type="submit">Logout <%=current_user(session).username%></button>
+            </form>
+          </div>
 
-        <div>
-          <form action="/signup" >
-             <button class="" type="submit">New Users: Create an Account</button>
-          </form>
-        </div>
+        <% else %>
+          <div>
+          </div>
 
-        <div>
-        </div>
+          <div>
+            <form action="/signup" >
+              <button class="" type="submit">New Users: Create an Account</button>
+            </form>
+          </div>
 
-        <div>
-          <form action="/login" >
-             <button class= "" type="submit">Current Users: Log In</button>
-          </form>
-        </div>
+          <div>
+          </div>
 
-        <div>
-        </div>
+          <div>
+            <form action="/login" >
+              <button class= "" type="submit">Current Users: Log In</button>
+            </form>
+          </div>
 
-      <% end %>
-    </div>
-  </header>
+          <div>
+          </div>
 
-  <%= yield %>
+        <% end %>
+      </div>
+    </header>
 
-  <footer>
-    <h5>2019 - Jesse Byers - <a href="https://github.com/jessesbyers/bird_log">Visit Project on GitHub</a></h5>
-  </footer>
+    <%= yield %>
 
-</body>
+    <footer>
+      <h5>2019 - Jesse Byers - <a href="https://github.com/jessesbyers/bird_log">Visit Project on GitHub</a></h5>
+    </footer>
+
+  </body>
 </html>
