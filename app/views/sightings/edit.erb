@@ -14,9 +14,11 @@
         <% @locations.uniq.sort.each do |location| %>
           <input type="radio" name="sighting[location]" value="<%= location %>"><%= location %></input>
         <% end %>
+        <br>
+        <input type="radio" name="sighting[location]">Other (add location below)</input>
 
           <p><label for="location">Location: </label>
-          <input type="textarea" name="location" value="<%= @sighting.location %>"></p>
+          <input type="textarea" name="place" value="<%= @sighting.location %>"></p>
 
           <p><label for="date">Date: </label>
             <input type="date" name="date" value="<%= @sighting.date %>" required></p>

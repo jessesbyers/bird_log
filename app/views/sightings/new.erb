@@ -18,6 +18,8 @@
     <% @birds.sort_by(&:common_name).each do |bird| %>
       <input type="radio" name="bird[bird_id]" value="<%= bird.id %>"><%= bird.common_name %></input>
     <% end %>
+    <br>
+    <input type="radio" name="bird[bird_id]">Other (add URL below)</input>
 
       <p><label for="audubon_url">Audubon URL (optional): </label>
         <input type="textarea" name="audubon_url" ></p>
@@ -27,9 +29,11 @@
         <% @locations.uniq.sort.each do |location| %>
           <input type="radio" name="sighting[location]" value="<%= location %>"><%= location %></input>
         <% end %>
+        <br>
+        <input type="radio" name="sighting[location]">Other (add location below)</input>
     
           <p><label for="location">New Location (optional): </label>
-            <input type="textarea" name="location" ></p>
+            <input type="textarea" name="place" ></p>
 
       <p><label for="date">Date: </label>
         <input type="date" name="date" required></p>
