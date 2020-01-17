@@ -3,95 +3,45 @@
 
 <head>
   <title>Bird Log</title>
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
 
   <style>
-    header .wrapper {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
-      grid-gap: 1em;
-      background-color: #659DBD;
-      border-radius: 12px;
-      align-items: center;
-      padding-left: 1em;
-      padding-right: 1em;
-      margin-left: 1em;
-      margin-right: 1em;
-    }
-
-    header h1 {
-      font-size: 60px;
-      color: #FBEEC1;
-    }
-
-    header button {
-      background-color: #FBEEC1;
-      width: 100%;
-      border-radius: 12px;
-    }
-
-    body {
-      background-color: #659DBD;
-    }
-
-    div {
-      text-align: center;
-      border-radius: 12px;
-    }
-
-    footer, footer h5 {
-      text-align: right;
-      background-color: yellow;
-      padding-left: 1em;
-      padding-right: 1em;
-      border-radius: 12px;
-      background-color: #659DBD;
-      font-size: 15px;
-      color: #FBEEC1;
-    }
-
-    h1, h2, h3, h4, h5, p, button, form, input {
-      font-family: 'EB Garamond', serif;
-      color: #8D8741;
-      text-align: center;
-    }
   </style>
 </head>
 
 <body>
 
   <header>
-    <div class="wrapper">
+    <div class="">
       <h1>Bird Log</h1>
 
       <% if logged_in?(session) %>
         <div>
           <form action="/users" >
-             <button class="large" type="submit">Home</button>
+             <button class="" type="submit">Home</button>
           </form>
         </div>
 
         <div>
           <form action="/sightings/new" >
-             <button class="large" type="submit">New Sighting</button>
+             <button class="" type="submit">New Sighting</button>
           </form>
         </div>
 
         <div>
           <form action="/sightings" >
-             <button class="large" type="submit">All Sightings</button>
+             <button class="" type="submit">All Sightings</button>
           </form>
         </div>
 
         <div>
           <form action="/birds" >
-             <button class="large" type="submit">All Birds</button>
+             <button class="" type="submit">All Birds</button>
           </form>
         </div>
 
         <div>
           <form action="/logout" >
-             <button class="large" type="submit">Logout <%=current_user(session).username%></button>
+             <button class="" type="submit">Logout <%=current_user(session).username%></button>
           </form>
         </div>
 
@@ -101,7 +51,7 @@
 
         <div>
           <form action="/signup" >
-             <button class="large" type="submit">New Users: Create an Account</button>
+             <button class="" type="submit">New Users: Create an Account</button>
           </form>
         </div>
 
@@ -110,7 +60,7 @@
 
         <div>
           <form action="/login" >
-             <button class= "large" type="submit">Current Users: Log In</button>
+             <button class= "" type="submit">Current Users: Log In</button>
           </form>
         </div>
 

@@ -1,15 +1,15 @@
   <% if logged_in?(session) %>
     <%@users.each do |user|%>
 
-        <div class="section">
+        <div class="">
 
-            <div class="card title">
+            <div class="">
               <h2><%=user.username.capitalize%>'s Bird Sightings</h2>
             </div>
 
             <%user.sightings.each do |sighting|%>
 
-                <div class="card">
+                <div class="">
                   <h2><%=sighting.bird.common_name%></h2>
                   <p><em><%=sighting.bird.scientific_name%></em></p>
 

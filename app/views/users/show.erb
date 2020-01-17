@@ -1,14 +1,14 @@
-<div class="home">
+<div class="">
 
-  <div class="section">
+  <div class="">
 
-    <div class="card title">
+    <div class="">
       <h1>My Birds</h1>
     </div>
 
     <%@user.birds.uniq.each do |bird|%>
 
-    <div class="card">
+    <div class="">
         <h2><%=bird.common_name%></h2>
         <p><em><%=bird.scientific_name%></em></p>
 
@@ -23,15 +23,15 @@
   </div>
 
 
-  <div class="section">
+  <div class="">
 
-    <div class="card title">
+    <div class="">
         <h1>My Sightings</h1>
     </div>
 
     <% @user.sightings.reverse.each do |sighting| %>
 
-        <div class="card">
+        <div class="">
           <h2><%=sighting.date%></h2>
           <p><%=sighting.bird.common_name%></p>
             <form action="/sightings/<%=sighting.id%>">

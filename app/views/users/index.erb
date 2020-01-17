@@ -1,18 +1,18 @@
 <% if logged_in?(session) %>
 
-  <div class="bigtitle">
+  <div class="">
   <h1>Welcome to Bird Log, <%= current_user(session).username %>!</h1>
   </div>
 
 <%else%>
-  <div class="bigtitle">
+  <div class="">
   <h1>Welcome to Bird Log!</h1>
   </div>
 
 
-  <div class="section">
+  <div class="">
 
-    <div class="card">
+    <div class="">
       <form action="/signup" >
          <button type="submit">New Users: Create an Account</button>
       </form>
@@ -23,18 +23,18 @@
     </div>
 
 
-    <div class="card">
+    <div class="">
       <h2>IDENTIFY</h2>
       <h3>Use the Audubon Online Bird Guide to identify each bird you see.</h3>
     </div>
 
-    <div class="card">
+    <div class="">
       <h2>RECORD</h2>
       <h3>Create and update your sightings of each bird.</h3>
       <h3>Look for patterns and trends over time.</h3>
     </div>
 
-    <div class="card">
+    <div class="">
       <h2>EXPLORE</h2>
       <h3>View detailed information on each Bird Species.</h3>
       <h3>See what other users are seeing.</h3>
