@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous"> </head>
 
     <title>Bird Log</title>
-
   </head>
 
   <body>
@@ -41,7 +40,12 @@
     <header class="htop">
     </header>
 
-    <%= yield %>
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
+
+    <header class="htop">
+    </header>
 
     <footer class='text-xs-center footer bg-inverse text-white navbar-fixed-bottom'>2019 - Jesse Byers - <a href="https://github.com/jessesbyers/bird_log">Visit Project on GitHub</a></footer>
 

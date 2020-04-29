@@ -23,21 +23,21 @@ html {
 #contact .container {
     background-color: rgb(0, 0, 0) transparent;
     background-color: rgba(0, 0, 0, 0.6);
-    padding: 10px;
+    /* padding: 10px; */
     color: white;
 }
 
-#sidemenu {
+/* #sidemenu {
     padding: 4em 0;
 }
 
 #sidemenu .container {
     padding: 2em;
-}
+} */
 
-.htop {
+header.htop {
     position: relative;
-    margin-top: 50px;
+    /* margin-top: 10px; */
     width: 100%;
     text-align: center;
     min-height: auto;
@@ -45,10 +45,4 @@ html {
     color: white;
     font-size: 1em;
     padding: 3em;
-}
-
-.footer {
-    height: auto;
-    padding: 20px;
-    margin-top: 40px;
 }
