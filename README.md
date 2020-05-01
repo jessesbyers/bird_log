@@ -2,31 +2,19 @@
 
 Welcome to Bird Log! Use this app to create a personal account and record your bird sightings. Then view your personalized bird guide, and see sightings of your birds by other users. All bird details are scraped from the Audubon Guide to North American Birds (https://www.audubon.org/bird-guide). 
 
+Learn More in my Blog Post: https://dev.to/jessesbyers/bird-log-a-sinatra-project-2jm
+
 ## Installation
 
-Add this line to your application's Gemfile:
+Clone this repo:
+    $ git clone https://github.com/jessesbyers/bird_log.git
 
-```ruby
-gem 'bird_log'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install bird_log
+Navigate into the root directory:
+    $ cd bird_log
 
 ## Usage
 
 Create an account on the home page, then log in to create your first sighting.
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 
