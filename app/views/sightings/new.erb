@@ -26,7 +26,7 @@
 
         <h3>Choose a location, or create a new location below.</h3>
 
-        <% @locations.uniq[0...6].each do |location| %>
+        <% @locations.uniq.sort[0...6].each do |location| %>
 
           <input type="radio" name="sighting[location]" value="<%= location %>"><%= location %></input>
         <% end %>
