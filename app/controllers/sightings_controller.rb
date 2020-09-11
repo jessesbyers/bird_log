@@ -50,7 +50,6 @@ class SightingsController < ApplicationController
 
     # logic for assigning location to sighting (need to remove locations from above)
     if params.has_key?("place") && !params[:place].empty?
-      binding.pry
       @sighting.update(:location => params[:place])
       redirect to "/sightings/#{@sighting.id}"
     else
