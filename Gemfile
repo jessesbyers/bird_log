@@ -6,18 +6,18 @@ gem 'sinatra-activerecord'
 gem 'rake'
 gem 'require_all'
 gem 'thin'
-gem 'shotgun'
+# gem 'shotgun'
 gem 'bcrypt'
 gem "tux"
 gem 'nokogiri'
-gem 'pg'
+# gem 'pg'
 
-# group :production do
-    # gem 'pg'
-# end
+group :production do
+    gem 'pg'
+end
 
 group :development, :test do
     gem 'pry'
-    # gem 'sqlite3'
+    gem 'sqlite3'
     # gem 'pg'
 end

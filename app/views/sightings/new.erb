@@ -11,35 +11,21 @@
           </form>
 
     <h1>2. Create a New Bird Sighting</h1>
-    <h3>Click the button for the bird you identified, OR copy the URL and paste it in the form below.</h3>
+
 
     <form action='/sightings' method="post">
 
-    <% @birds.sort_by(&:common_name).each do |bird| %>
-      <input type="radio" name="bird[bird_id]" value="<%= bird.id %>"><%= bird.common_name %></input>
-    <% end %>
-    <br>
-    <input type="radio" name="bird[bird_id]">Other (add URL below)</input>
-
       <p><label for="audubon_url">Audubon URL (optional): </label>
         <input type="textarea" name="audubon_url" ></p>
-
-        <h3>Choose a location, or create a new location below.</h3>
-
-        <% @locations.uniq[0...6].each do |location| %>
-          <input type="radio" name="sighting[location]" value="<%= location %>"><%= location %></input>
-        <% end %>
-        <br>
-        <input type="radio" name="sighting[location]">Other (add location below)</input>
     
-          <p><label for="location">New Location (optional): </label>
+          <p><label for="location">Location (optional): </label>
             <input type="textarea" name="place" ></p>
 
       <p><label for="date">Date: </label>
         <input type="date" name="date" required></p>
 
-      <p><label for="notes">Notes: </label>
-        <input type="textarea" name="notes" required></p>
+      <p><label for="notes">Notes (optional): </label>
+        <input type="textarea" name="notes" ></p>
       <input type="submit" id="submit" name="submit" value="Create New Sighting">
     </form>
   </div>

@@ -7,10 +7,16 @@ Learn More in my Blog Post: https://dev.to/jessesbyers/bird-log-a-sinatra-projec
 ## Installation
 
 Clone this repo:
-    $ git clone https://github.com/jessesbyers/bird_log.git
+    `$ git clone https://github.com/jessesbyers/bird_log.git`
 
 Navigate into the root directory:
-    $ cd bird_log
+    `$ cd bird_log`
+
+Install dependencies:
+    `$ bundle install`
+
+Start the Sinatra Server:
+    `$ bundle exec rackup -p 3000`
 
 ## Usage
 
