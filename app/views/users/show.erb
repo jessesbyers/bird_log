@@ -3,7 +3,7 @@
   <div class="section">
 
     <div class="card title">
-      <h1>My Birds</h1>
+      <h1>My Birds - <%=@user.birds.uniq.count%></h1>
     </div>
 
     <%@user.birds.uniq.each do |bird|%>
@@ -26,7 +26,7 @@
   <div class="section">
 
     <div class="card title">
-        <h1>My Sightings</h1>
+      <h1>My Sightings - <%=@user.sightings.count%></h1>
     </div>
 
     <% @user.sightings.reverse.each do |sighting| %>
